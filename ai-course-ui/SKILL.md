@@ -9,6 +9,12 @@ The reference implementation lives at
 `C:\Users\Lucas\Desktop\Student Platform\courses\ai\`. Read the actual files
 when in doubt — this skill is the distilled contract, not a replacement.
 
+A **self-contained snapshot** of the canonical files is also bundled next to this
+skill under `reference/` (css, js, glossary, plus `index.html`, a chapter, a
+quiz, and a lab) so the design system can be consulted from anywhere, even when
+the Student Platform repo isn't checked out. Treat the live project as source of
+truth; refresh `reference/` if the originals change.
+
 - Design tokens + components: `courses/ai/assets/css/style.css`
 - Interaction behavior: `courses/ai/assets/js/app.js` (shared shape with
   `courses/investment/assets/js/app.js` — only `LANG_KEY`/`PROGRESS_KEY` differ)

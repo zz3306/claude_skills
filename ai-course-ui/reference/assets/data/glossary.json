@@ -1,0 +1,152 @@
+{
+  "ai": {
+    "en": "AI (Artificial Intelligence)",
+    "zhDef": "让机器表现出类似人类智能行为的技术总称。注意 AI 不等于 LLM——LLM 只是其中一种。",
+    "enDef": "Umbrella term for techniques that make machines behave intelligently. AI ≠ LLM — LLMs are just one branch."
+  },
+  "llm": {
+    "en": "LLM (Large Language Model)",
+    "zhDef": "大语言模型。通过预测下一个 token 来生成文本的神经网络。ChatGPT、Claude、Gemini 背后都是 LLM。",
+    "enDef": "Large Language Model. A neural network that generates text by predicting the next token. ChatGPT, Claude, Gemini are all LLMs."
+  },
+  "token": {
+    "en": "Token",
+    "zhDef": "模型读写文本的最小单位。1 个中文字 ≈ 1-2 个 token，1 个英文单词 ≈ 1-2 个 token。Token 数量直接决定花多少钱、占多少上下文。",
+    "enDef": "The smallest unit a model reads/writes. One Chinese character ≈ 1-2 tokens, one English word ≈ 1-2 tokens. Token count drives both cost and context usage."
+  },
+  "context": {
+    "en": "Context Window",
+    "zhDef": "AI 一次对话能看到的总 token 数量。Claude 4.7 大约 200K，GPT-5 约 400K。超出窗口的内容会被截断。",
+    "enDef": "The total tokens a model can see in one conversation. Claude 4.7 ≈ 200K, GPT-5 ≈ 400K. Content beyond this gets truncated."
+  },
+  "prompt": {
+    "en": "Prompt",
+    "zhDef": "你发给 AI 的输入文本。Prompt 写得好不好，直接决定输出质量。",
+    "enDef": "The input text you send to an AI. Prompt quality directly drives output quality."
+  },
+  "system-prompt": {
+    "en": "System Prompt",
+    "zhDef": "对话开始前设定 AI 角色、规则、风格的特殊 prompt。整个对话过程都生效。",
+    "enDef": "A special prompt that sets the AI's role, rules, and style before the conversation starts. Persists across all turns."
+  },
+  "hallucination": {
+    "en": "Hallucination",
+    "zhDef": "AI 生成看似可信但实际错误或虚构的内容。LLM 本质是预测下一个 token，不是查事实，所以会幻觉。",
+    "enDef": "When AI generates plausible-sounding but false or fabricated content. LLMs predict the next token, they don't look up facts."
+  },
+  "agent": {
+    "en": "Agent",
+    "zhDef": "Anthropic 的定义：系统让 LLM 自己决定下一步用什么工具、做什么动作。和 workflow 的区别在于：workflow 的步骤是写死的，agent 是 LLM 临场决定的。",
+    "enDef": "Per Anthropic: a system where the LLM dynamically directs its own tool use. Differs from workflow, where steps are hard-coded by code."
+  },
+  "workflow": {
+    "en": "Workflow",
+    "zhDef": "LLM 和工具按照预先写好的代码路径协调工作。相比 agent，可预测、可调试、可控。大部分实际应用其实是 workflow，不是 agent。",
+    "enDef": "LLMs and tools orchestrated through predefined code paths. More predictable, debuggable, controllable than agents. Most real apps are workflows, not agents."
+  },
+  "tool-use": {
+    "en": "Tool Use / Function Calling",
+    "zhDef": "让 LLM 不仅能说话，还能调用外部函数（搜索、查天气、执行代码等）。模型返回一个结构化的调用请求，你的代码去执行，再把结果喂回去。",
+    "enDef": "Letting an LLM call external functions (search, weather, code execution, etc.). The model returns a structured tool_use request; your code executes it and feeds the result back."
+  },
+  "rag": {
+    "en": "RAG (Retrieval-Augmented Generation)",
+    "zhDef": "检索增强生成。先从你自己的资料库里检索相关片段，再喂给 LLM 回答问题。让 AI 能答它原本不知道的内容。",
+    "enDef": "Retrieval-Augmented Generation. Search your own knowledge base first, then feed the retrieved chunks to the LLM. Lets AI answer about content it wasn't trained on."
+  },
+  "embedding": {
+    "en": "Embedding",
+    "zhDef": "把一段文字变成一串数字（向量），语义相近的文字向量也相近。是 RAG 搜索和语义匹配的基础。",
+    "enDef": "Turning text into a vector of numbers where semantically similar text has similar vectors. The foundation of RAG and semantic search."
+  },
+  "cot": {
+    "en": "Chain of Thought (CoT)",
+    "zhDef": "让 AI '一步一步想'再回答的 prompt 技巧。对数学、逻辑、推理类问题特别有效。",
+    "enDef": "A prompting technique that asks the AI to 'think step by step' before answering. Especially effective for math, logic, and reasoning problems."
+  },
+  "few-shot": {
+    "en": "Few-shot Prompting",
+    "zhDef": "在 prompt 里给 AI 看几个示例（通常 3-5 个），告诉它'要这样回答'。Anthropic 称之为'最可靠的引导方法之一'。",
+    "enDef": "Showing the AI a few examples (usually 3-5) in the prompt to demonstrate the target output. Anthropic calls this 'one of the most reliable techniques'."
+  },
+  "zero-shot": {
+    "en": "Zero-shot Prompting",
+    "zhDef": "不给任何示例，直接让 AI 完成任务。现代 LLM 大部分简单任务都能 zero-shot 做好。",
+    "enDef": "Asking the AI to do something with no examples. Modern LLMs handle most simple tasks zero-shot."
+  },
+  "transformer": {
+    "en": "Transformer",
+    "zhDef": "2017 年 Google 论文 Attention is All You Need 提出的神经网络结构，今天所有主流 LLM 的底层架构。",
+    "enDef": "Neural network architecture from Google's 2017 paper 'Attention is All You Need'. The foundation of every modern LLM."
+  },
+  "attention": {
+    "en": "Attention",
+    "zhDef": "Transformer 的核心机制：模型在生成每个 token 时，会回头看前面所有 token 并决定哪些更重要。类比：读小说时会回头翻前文。",
+    "enDef": "Core mechanism of the Transformer: when generating each token, the model looks back at all previous tokens and decides which matter most."
+  },
+  "fine-tuning": {
+    "en": "Fine-tuning",
+    "zhDef": "在已有的预训练模型基础上，用更小的、专门的数据集再训练一遍，让它在特定任务上更强。",
+    "enDef": "Taking a pre-trained model and training it further on a smaller, specialized dataset to make it better at a specific task."
+  },
+  "inference": {
+    "en": "Inference",
+    "zhDef": "你每次跟 AI 对话，它都在做 inference——用训练好的参数生成回答。区别于 training（训练）。",
+    "enDef": "Each time you chat with AI, it runs inference — using trained parameters to generate a response. Different from training."
+  },
+  "mcp": {
+    "en": "MCP (Model Context Protocol)",
+    "zhDef": "Anthropic 2024 年推出的开放协议，让 AI 工具能用统一的方式连接到外部数据源和工具。像 USB-C 接口之于设备。",
+    "enDef": "Anthropic's 2024 open protocol that lets AI tools connect to external data sources and tools in a standard way. Like USB-C for AI."
+  },
+  "claude-md": {
+    "en": "CLAUDE.md",
+    "zhDef": "Claude Code 的项目配置文件，每次启动自动加载。相当于给 Claude 写的'团队约定'。最佳实践：控制在 200 行以内。",
+    "enDef": "Claude Code's per-project config file, auto-loaded on each session. Like a 'team handbook' for Claude. Best practice: keep under 200 lines."
+  },
+  "multimodal": {
+    "en": "Multimodal",
+    "zhDef": "多模态。能同时处理文本、图像、音频、视频等多种输入输出。现代旗舰模型几乎全是多模态的。",
+    "enDef": "Multimodal. Able to process text, images, audio, video, etc. together. Most flagship models today are multimodal."
+  },
+  "human-in-the-loop": {
+    "en": "Human-in-the-loop (HITL)",
+    "zhDef": "在 AI 流程中保留关键人工审批点。例如发邮件、转账、删数据这类高风险动作必须人工确认。",
+    "enDef": "Keeping critical human approval points in an AI pipeline. High-risk actions like sending emails, transferring money, or deleting data require human confirmation."
+  },
+  "structured-output": {
+    "en": "Structured Output",
+    "zhDef": "让 AI 输出严格符合某个格式（JSON、XML、表格）的结果，方便程序解析。",
+    "enDef": "Forcing the AI to output in a strict format (JSON, XML, table) so downstream code can parse it."
+  },
+  "api-key": {
+    "en": "API Key",
+    "zhDef": "调用 AI 服务的身份凭证，相当于密码。绝对不要上传到 GitHub 或贴到公开聊天里。",
+    "enDef": "Your credential for calling an AI service — like a password. Never commit it to GitHub or paste it in public chats."
+  },
+  "api": {
+    "en": "API",
+    "zhDef": "应用程序接口。程序之间互相通信的「插头」——你的代码通过 API 调用 AI 服务，就像用遥控器控制电视，不需要知道内部怎么工作。",
+    "enDef": "Application Programming Interface. A defined way for programs to talk to each other — like a socket that lets your code plug into AI services without knowing what's inside."
+  },
+  "github": {
+    "en": "GitHub",
+    "zhDef": "全球最大的代码托管平台。可以把它理解为代码的「云盘 + 版本历史」，开发者在这里存储、分享和协作开发代码。",
+    "enDef": "The world's largest code hosting platform — think Google Drive + version history for code. Developers store, share, and collaborate on code here."
+  },
+  "environment-variable": {
+    "en": "Environment Variable",
+    "zhDef": "环境变量。储存在操作系统里的配置值（比如密码、API Key），程序运行时自动读取，不需要写死在代码里，更安全。",
+    "enDef": "A configuration value stored in the operating system (like passwords or API keys). Programs read them at runtime instead of hardcoding sensitive values into source code."
+  },
+  "open-source": {
+    "en": "Open Source",
+    "zhDef": "开源。代码完全公开，任何人都可以查看、使用和改进。例如 Linux、Python 都是开源项目。",
+    "enDef": "Software whose source code is publicly available for anyone to view, use, and modify. Examples: Linux, Python."
+  },
+  "terminal": {
+    "en": "Terminal / Command Line",
+    "zhDef": "终端/命令行。用文字命令操控电脑的窗口，不需要图形界面。很多 AI 工具需要在这里运行。",
+    "enDef": "A text-based interface for controlling your computer with typed commands. Many AI tools are run from here instead of a graphical app."
+  }
+}

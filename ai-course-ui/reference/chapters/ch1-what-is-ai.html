@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 1 · AI 到底是什么 · AI 通识课</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body data-chapter-id="ch1">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark"></span>
+      <span class="zh-only">AI 通识课</span><span class="en-only">AI Literacy</span>
+    </a>
+    <div class="spacer"></div>
+    <nav>
+      <a href="../index.html#chapters"><span class="zh-only">全部章节</span><span class="en-only">Chapters</span></a>
+      <a href="../quizzes/ch1-quiz.html"><span class="zh-only">本章测验</span><span class="en-only">Quiz</span></a>
+    </nav>
+    <div class="lang-toggle">
+      <button data-lang="zh">中</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="with-toc">
+<main>
+
+<div class="chapter-header">
+  <div class="crumbs"><a href="../index.html"><span class="zh-only">首页</span><span class="en-only">Home</span></a> / Ch 1</div>
+  <h1>
+    <span class="zh-only"><span class="term" data-term="ai">AI</span> 到底是什么</span>
+    <span class="en-only">What is AI, Really?</span>
+  </h1>
+  <p class="subtitle">
+    <span class="zh-only">用了一年 AI 之后, 你说得清"AI"、"机器学习"、"深度学习"、"<span class="term" data-term="transformer">Transformer</span>"、"<span class="term" data-term="llm">LLM</span>"到底什么关系吗? 这章把概念套娃理清楚, 历史用一段话说完, 然后给 Ch2 的深入做好准备。</span>
+    <span class="en-only">After a year of using AI — can you actually explain how "AI", "ML", "DL", "Transformer", "LLM" relate? This chapter clears the nesting up, covers history in one paragraph, and sets up Ch2's deep dive.</span>
+  </p>
+  <div class="chapter-meta">
+    <span>⏱️ 15 min</span>
+    <span>📖 <span class="zh-only">概念入门, Ch2 深入</span><span class="en-only">Concept primer; Ch2 goes deep</span></span>
+  </div>
+</div>
+
+<!-- ========== 01 ========== -->
+<section id="elevator">
+<h2><span class="zh-only">01 · 电梯定义</span><span class="en-only">01 · The Elevator Definition</span></h2>
+
+<div class="callout tip">
+  <p><span class="zh-only"><strong>AI (Artificial Intelligence) 一句话:</strong> 让机器表现出"看起来很智能"的行为的所有技术总称。</span>
+    <span class="en-only"><strong>AI in one sentence:</strong> the umbrella term for any technology that makes a machine behave in ways we'd call "intelligent".</span></p>
+</div>
+
+<p><span class="zh-only">注意 "看起来" 这三个字。 AI 不是"机器有了意识", 而是"机器能完成原本需要人智能才能完成的任务"。 这两件事不是一回事。</span>
+  <span class="en-only">Notice "behave like". AI is NOT "machines become conscious" — it's "machines do things that used to require human intelligence". Two very different claims.</span></p>
+
+<details class="layer">
+  <summary><span class="zh-only">深入: AI 的三种定义路线</span><span class="en-only">Deeper: three schools of defining AI</span>
+    <span class="layer-tag deep">+3 min</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only">在 AI 学界历史上, 至少有三种主流定义:</span>
+      <span class="en-only">Historically, the AI field has had at least three definitional schools:</span></p>
+    <ol>
+      <li><strong><span class="zh-only">行为派 (Turing 学派):</span><span class="en-only">Behavioral (Turing school):</span></strong>
+        <span class="zh-only">看起来像人就算。 1950 年图灵测试就是这一派 —— 你跟它聊天分不清是人是机器, 它就算 AI。 现代 ChatGPT 是这派的胜利。</span>
+        <span class="en-only">If it acts like a human, it's AI. Turing Test (1950) is this school's flagship — if you can't tell it from a human in chat, it's AI. ChatGPT is this school's victory.</span></li>
+      <li><strong><span class="zh-only">理性派 (符号派):</span><span class="en-only">Rationalist (symbolic):</span></strong>
+        <span class="zh-only">能像人一样推理就算。 1950-80 年代主流, 试图把"知识"用规则和符号写出来 (专家系统)。 后来发现"我们自己都说不清自己是怎么思考的", 走入死胡同。</span>
+        <span class="en-only">If it can reason like a human, it's AI. Dominant from 1950s-80s. Tried to encode knowledge as rules (expert systems). Hit a wall: we ourselves can't articulate how we think.</span></li>
+      <li><strong><span class="zh-only">数据派 (统计学派, 现在的主流):</span><span class="en-only">Data-driven (statistical, today's mainstream):</span></strong>
+        <span class="zh-only">不要试图教机器"怎么思考", 给它海量数据让它自己找规律。 这就是 Machine Learning 的核心思想, 也是今天所有 AI 的底层范式。</span>
+        <span class="en-only">Don't teach machines "how to think" — feed them massive data, let them find patterns. This is Machine Learning's core idea and underpins all modern AI.</span></li>
+    </ol>
+    <p><span class="zh-only">所以今天你用的 ChatGPT, 是"数据派"的产物, 但它表现出的能力让"行为派"的目标 (图灵测试) 在 2023 年被认为基本完成。</span>
+      <span class="en-only">So today's ChatGPT is a data-driven creation, yet its capabilities have basically completed the behaviorist goal (Turing test, around 2023).</span></p>
+  </div>
+</details>
+</section>
+
+<!-- ========== 02 ========== -->
+<section id="concept-map">
+<h2><span class="zh-only">02 · 概念地图: 5 个词到底什么关系</span><span class="en-only">02 · Concept Map: How the 5 Terms Relate</span></h2>
+
+<p><span class="zh-only">这是大多数人最混乱的地方。 来, 我们把它一次说清楚:</span>
+  <span class="en-only">This is where most people get muddled. Let's clear it up once and for all:</span></p>
+
+<div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0;font-family:var(--font-mono);font-size:13px;line-height:1.9;text-align:center;">
+<strong>AI</strong> (<span class="zh-only">人工智能 — 最大的圈</span><span class="en-only">Artificial Intelligence — biggest circle</span>)<br>
+&nbsp;&nbsp;⊃ <strong>Machine Learning</strong> (<span class="zh-only">机器学习 — AI 的一个流派</span><span class="en-only">a school within AI</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;⊃ <strong>Deep Learning</strong> (<span class="zh-only">深度学习 — ML 的一种方法</span><span class="en-only">a method within ML</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⊃ <strong>Transformer</strong> (<span class="zh-only">深度学习的一种结构</span><span class="en-only">an architecture within DL</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⊃ <strong>LLM</strong> (<span class="zh-only">用 Transformer 训练的大语言模型</span><span class="en-only">large language model using Transformer</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⊃ <strong>GenAI</strong> (<span class="zh-only">生成式 AI — LLM 的用法之一</span><span class="en-only">one use case of LLMs</span>)
+</div>
+
+<p><span class="zh-only">点开下面每个概念看详细解释:</span><span class="en-only">Click each below for the full explanation:</span></p>
+
+<details class="layer">
+  <summary>🟢 AI (Artificial Intelligence) — <span class="zh-only">人工智能</span><span class="en-only">Artificial Intelligence</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>一句话:</strong> 所有让机器"做智能事"的方法 —— 包括但不限于机器学习。</span>
+      <span class="en-only"><strong>One line:</strong> any technique that makes a machine do intelligent things — including but not limited to machine learning.</span></p>
+    <p><span class="zh-only"><strong>非机器学习的 AI 例子:</strong></span><span class="en-only"><strong>Non-ML examples of AI:</strong></span></p>
+    <ul>
+      <li><span class="zh-only">下棋程序 (深蓝, 1997 战胜卡斯帕罗夫的那个) —— 靠暴力搜索 + 人写的评估函数, 没机器学习</span>
+        <span class="en-only">Chess programs like Deep Blue (1997, beat Kasparov) — brute-force search + handcrafted evaluation, no ML</span></li>
+      <li><span class="zh-only">早期搜索引擎 —— 关键词匹配 + PageRank, 没机器学习</span>
+        <span class="en-only">Early search engines — keyword matching + PageRank, no ML</span></li>
+      <li><span class="zh-only">导航 GPS 找最短路径 —— Dijkstra 算法, 没机器学习</span>
+        <span class="en-only">GPS shortest path — Dijkstra's algorithm, no ML</span></li>
+    </ul>
+    <p><span class="zh-only">所以"AI"是一个很老的词 (1956 年达特茅斯会议提出), 它包含了今天的机器学习, 也包含 60 年前那种"用规则硬编"的早期 AI。</span>
+      <span class="en-only">"AI" is an old term (coined at Dartmouth in 1956). It encompasses today's ML and also the rule-based "good old-fashioned AI" of the 60s.</span></p>
+  </div>
+</details>
+
+<details class="layer">
+  <summary>🟢 Machine Learning (ML) — <span class="zh-only">机器学习</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>一句话:</strong> 不要明确告诉机器规则, 给它数据让它自己找规律。</span>
+      <span class="en-only"><strong>One line:</strong> don't write down the rules — give the machine data, let it find the pattern itself.</span></p>
+    <p><span class="zh-only"><strong>核心区别:</strong></span><span class="en-only"><strong>The fundamental shift:</strong></span></p>
+    <table>
+    <thead><tr><th></th>
+      <th><span class="zh-only">传统编程</span><span class="en-only">Traditional code</span></th>
+      <th><span class="zh-only">机器学习</span><span class="en-only">Machine Learning</span></th></tr></thead>
+    <tbody>
+    <tr><td><span class="zh-only">你给</span><span class="en-only">You give</span></td>
+      <td><span class="zh-only">规则 + 数据</span><span class="en-only">Rules + Data</span></td>
+      <td><span class="zh-only">数据 + 答案</span><span class="en-only">Data + Answers</span></td></tr>
+    <tr><td><span class="zh-only">机器给</span><span class="en-only">Machine gives</span></td>
+      <td><span class="zh-only">答案</span><span class="en-only">Answers</span></td>
+      <td><span class="zh-only">规则</span><span class="en-only">Rules (the "model")</span></td></tr>
+    <tr><td><span class="zh-only">例子</span><span class="en-only">Example</span></td>
+      <td><span class="zh-only">"如果邮件里有'中奖', 标记为垃圾"</span><span class="en-only">"If email has 'winner', mark as spam"</span></td>
+      <td><span class="zh-only">看 100 万封人工标好的邮件, 自己找出"什么样的邮件像垃圾"</span><span class="en-only">Show it 1M labeled emails, it learns "what spam looks like"</span></td></tr>
+    </tbody>
+    </table>
+    <p><span class="zh-only"><strong>3 个主要类型 (一句话各):</strong></span><span class="en-only"><strong>3 main types (one line each):</strong></span></p>
+    <ul>
+      <li><strong>Supervised Learning</strong> (<span class="zh-only">监督学习</span>): <span class="zh-only">数据带标签 (邮件 + "是不是垃圾")</span>
+        <span class="en-only">data comes with labels (email + "is it spam")</span></li>
+      <li><strong>Unsupervised Learning</strong> (<span class="zh-only">无监督学习</span>): <span class="zh-only">数据没标签, 让机器自己找聚类 (比如用户分群)</span>
+        <span class="en-only">no labels — machine finds clusters (user segmentation)</span></li>
+      <li><strong>Reinforcement Learning</strong> (<span class="zh-only">强化学习</span>): <span class="zh-only">通过"奖励/惩罚"学习 (AlphaGo、自动驾驶)</span>
+        <span class="en-only">learn via reward/penalty (AlphaGo, self-driving)</span></li>
+    </ul>
+  </div>
+</details>
+
+<details class="layer">
+  <summary>🟢 Deep Learning — <span class="zh-only">深度学习</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>一句话:</strong> 用"多层神经网络"来做 ML —— "深度"指的就是层数多。</span>
+      <span class="en-only"><strong>One line:</strong> ML done with "many-layered neural networks" — "deep" means "many layers".</span></p>
+    <p><span class="zh-only"><strong>为什么能赢:</strong> 传统 ML 需要人类先告诉机器"哪些特征重要" (比如做垃圾邮件识别, 你得先列出"是否含'中奖'、是否含全大写..."这些特征)。 深度学习不需要 —— 你直接喂原始数据, 网络自己从底层逐层提取特征。</span>
+      <span class="en-only"><strong>Why it won:</strong> classical ML needs humans to define features ("has 'winner', is all caps...") first. Deep learning doesn't — you feed raw data, and each layer extracts features automatically.</span></p>
+    <p><span class="zh-only"><strong>类比:</strong> 学认猫</span><span class="en-only"><strong>Analogy:</strong> learning to recognize a cat</span></p>
+    <ul>
+      <li><span class="zh-only">第 1 层学到"边缘和角"</span><span class="en-only">Layer 1 learns edges and corners</span></li>
+      <li><span class="zh-only">第 2 层学到"由边缘组合成的耳朵、眼睛形状"</span><span class="en-only">Layer 2 learns ear-shapes, eye-shapes built from edges</span></li>
+      <li><span class="zh-only">第 3 层学到"耳朵 + 眼睛 + 胡须 = 猫脸"</span><span class="en-only">Layer 3 learns "ears + eyes + whiskers = cat face"</span></li>
+      <li><span class="zh-only">第 4 层学到"猫的全身姿态"</span><span class="en-only">Layer 4 learns full-body cat poses</span></li>
+    </ul>
+    <p><span class="zh-only">这种"由简到繁、自动学层级特征"的能力, 是深度学习区别于其他 ML 的核心。</span>
+      <span class="en-only">This automatic hierarchical feature learning is what sets deep learning apart from other ML.</span></p>
+    <p><span class="zh-only"><strong>关键时刻:</strong> 2012 年 AlexNet 在 ImageNet 图像识别比赛上断崖式碾压传统方法, 深度学习从此爆发。</span>
+      <span class="en-only"><strong>Watershed moment:</strong> AlexNet at ImageNet 2012 obliterated classical methods. Deep learning has dominated ever since.</span></p>
+  </div>
+</details>
+
+<details class="layer">
+  <summary>🟢 LLM (Large Language Model) — <span class="zh-only">大语言模型</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>一句话:</strong> 用 Transformer 结构 + 海量文本训练出的, 能"理解和生成自然语言"的大型神经网络。</span>
+      <span class="en-only"><strong>One line:</strong> a large neural network trained on massive text using the Transformer architecture, capable of understanding and generating natural language.</span></p>
+    <p><span class="zh-only"><strong>"大"在哪里:</strong></span><span class="en-only"><strong>What's "large":</strong></span></p>
+    <ul>
+      <li><span class="zh-only"><strong>参数大:</strong> 几百亿到上万亿。 参数就是神经网络里的可调旋钮。 GPT-3 有 1750 亿参数, Claude Opus 4 据估计 1 万亿+。</span>
+        <span class="en-only"><strong>Parameters:</strong> tens to thousands of billions. Parameters are the tunable knobs in the network. GPT-3 had 175B. Claude Opus 4 is estimated at 1T+.</span></li>
+      <li><span class="zh-only"><strong>数据大:</strong> 训练时见过几乎整个互联网的文字 —— Wikipedia、新闻、书籍、论坛、代码...</span>
+        <span class="en-only"><strong>Data:</strong> trained on nearly all the text on the internet — Wikipedia, news, books, forums, code...</span></li>
+      <li><span class="zh-only"><strong>算力大:</strong> 训练一次要几千张顶级 GPU 跑几个月, 成本上亿美元。</span>
+        <span class="en-only"><strong>Compute:</strong> one training run uses thousands of top GPUs for months, costing hundreds of millions of dollars.</span></li>
+    </ul>
+    <p><span class="zh-only">下一章 (Ch2) 我们专门讲 LLM 是怎么工作的。</span>
+      <span class="en-only">Next chapter (Ch2) goes deep on how LLMs actually work.</span></p>
+  </div>
+</details>
+
+<details class="layer">
+  <summary>🟢 GenAI (Generative AI) — <span class="zh-only">生成式 AI</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>一句话:</strong> 不只是"判断", 还能"生成"新内容的 AI —— 文字、图像、音频、视频、代码。</span>
+      <span class="en-only"><strong>One line:</strong> AI that doesn't just classify or predict, but <em>creates</em> new content — text, images, audio, video, code.</span></p>
+    <p><span class="zh-only"><strong>对比:</strong></span><span class="en-only"><strong>Compare:</strong></span></p>
+    <ul>
+      <li><span class="zh-only"><strong>判别式 AI</strong> (Discriminative): 给我一张图, 我告诉你是不是猫</span>
+        <span class="en-only"><strong>Discriminative AI</strong>: give me an image, I tell you if it's a cat</span></li>
+      <li><span class="zh-only"><strong>生成式 AI</strong> (Generative): 我画一张猫给你</span>
+        <span class="en-only"><strong>Generative AI</strong>: I'll <em>paint</em> you a cat</span></li>
+    </ul>
+    <p><span class="zh-only">ChatGPT、Claude、Midjourney、Sora 都是 GenAI。 GenAI 这个词在 2022 年 ChatGPT 出来后才彻底火起来 —— 它不是新技术, 是 LLM 应用的新名字。</span>
+      <span class="en-only">ChatGPT, Claude, Midjourney, Sora — all GenAI. The term exploded after ChatGPT (Nov 2022). Not new tech, just a new label for LLM applications.</span></p>
+  </div>
+</details>
+</section>
+
+<!-- ========== 03 HISTORY (compressed) ========== -->
+<section id="history">
+<h2><span class="zh-only">03 · 一段话讲完 AI 70 年</span><span class="en-only">03 · 70 Years of AI in One Paragraph</span></h2>
+
+<p><span class="zh-only">AI 作为学科诞生于 1956 年达特茅斯会议, 经历过两次"寒冬" (60-70 年代, 80-90 年代承诺没兑现 + 资助断绝), 1997 年深蓝下棋赢卡斯帕罗夫, 2012 年 <strong>AlexNet</strong> 在 ImageNet 比赛碾压传统方法, 深度学习春天开始。 2017 年 Google 发 <strong>"Attention is All You Need"</strong>——Transformer 架构诞生, 这是<strong>真正的分水岭</strong>。 2022 年 11 月 ChatGPT 上线, 5 天 100 万用户, AI 从学术圈进入日常生活。 2024-2025 进入"<span class="term" data-term="agent">agent</span> 元年"和"推理模型"范式 (o1 / R1 / Extended Thinking, Ch3 §02c 会讲)——现在你正活在 AI 历史上最快变化的两年。</span>
+  <span class="en-only">AI as a field was born at the 1956 Dartmouth Workshop, survived two "winters" (60-70s and 80-90s — broken promises + dried funding), saw Deep Blue beat Kasparov in 1997, then in 2012 <strong>AlexNet</strong> obliterated traditional methods at ImageNet — the deep learning spring began. In 2017 Google published <strong>"Attention is All You Need"</strong> — the Transformer architecture is born, <strong>the real dividing line</strong>. In Nov 2022 ChatGPT launched (1M users in 5 days), AI moved from academia to daily life. 2024-2025 brought the "year of agents" and "reasoning model" paradigm (o1 / R1 / Extended Thinking, see Ch3 §02c) — right now you're living through the fastest two years in AI history.</span></p>
+
+<div class="callout info">
+  <p><span class="zh-only"><strong>关键认知:</strong> 你只需要记 <strong>2017 (Transformer 论文)</strong> 和 <strong>2022.11 (ChatGPT)</strong> 这两个日期。 前者是技术分水岭, 后者是社会分水岭。 其它年份不重要。</span>
+    <span class="en-only"><strong>Key insight:</strong> only two dates matter — <strong>2017 (Transformer paper)</strong> and <strong>Nov 2022 (ChatGPT)</strong>. The first is the technical watershed, the second is the social one. Other years aren't important.</span></p>
+</div>
+</section>
+
+<!-- ========== 04 ========== -->
+<section id="not-ai">
+<h2><span class="zh-only">04 · AI 不是什么 — 破除 5 个迷思</span><span class="en-only">04 · What AI is NOT — Debunking 5 Myths</span></h2>
+
+<details class="layer" open>
+  <summary>❌ <span class="zh-only">迷思 1: "AI 像 Google, 是搜索引擎"</span>
+    <span class="en-only">Myth 1: "AI is like Google — a search engine"</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>事实:</strong> AI 不查任何东西, 它在"按概率续写"。 你问它"鲁迅是谁", 它不是去查百科, 而是基于训练时见过的所有提到鲁迅的文字, 生成一段最可能的回答。</span>
+      <span class="en-only"><strong>Reality:</strong> AI doesn't look anything up. It probabilistically continues text. When you ask "who is Lu Xun?", it's not querying an encyclopedia — it's generating the most likely response based on all the Lu Xun text it saw in training.</span></p>
+    <p><span class="zh-only"><strong>后果:</strong> 它训练时没见过的事 (比如本周的新闻), 它要么不知道, 要么会编一个看起来很合理的答案 (<span class="term" data-term="hallucination">幻觉</span>)。</span>
+      <span class="en-only"><strong>Consequence:</strong> things it didn't see in training (this week's news), it either won't know, or it'll fabricate a plausible-looking answer (hallucination).</span></p>
+  </div>
+</details>
+
+<details class="layer">
+  <summary>❌ <span class="zh-only">迷思 2: "AI 有了意识/感情"</span>
+    <span class="en-only">Myth 2: "AI has consciousness / feelings"</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>事实:</strong> AI 输出"我感到很沮丧"不代表它真的沮丧。 那是它学到的"人在这种情境下会这么说"的语言模式。</span>
+      <span class="en-only"><strong>Reality:</strong> AI saying "I feel sad" doesn't mean it feels sad. It learned the linguistic pattern of "what humans say in this situation".</span></p>
+    <p><span class="zh-only"><strong>哲学留白:</strong> 这是开放问题。 学界对"超大模型会不会涌现某种主观体验"还有争论, 但今天的 LLM 至少没有任何机制能让它"持续存在" —— 你关闭窗口, 它就消失了, 不会"想念你"。</span>
+      <span class="en-only"><strong>Philosophical caveat:</strong> open question. There's debate about whether very large models might develop "something like" subjective experience. But today's LLM has no mechanism for persistence — close the tab, it's gone, it doesn't "miss you".</span></p>
+  </div>
+</details>
+
+<details class="layer">
+  <summary>❌ <span class="zh-only">迷思 3: "AI 给的答案都是对的"</span>
+    <span class="en-only">Myth 3: "AI's answers are always correct"</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>事实:</strong> AI 会犯错, 而且会用极其自信的语气犯错。 Ch9 会专门讲这个。</span>
+      <span class="en-only"><strong>Reality:</strong> AI makes mistakes — confidently. Ch9 covers this in depth.</span></p>
+    <p><span class="zh-only"><strong>规则:</strong> 关键事实 (数据、人名、引文、年份) 永远要二次验证。 判断型内容 (建议、思路、写作) 容错率高得多。</span>
+      <span class="en-only"><strong>Rule:</strong> always verify hard facts (numbers, names, quotes, dates). Judgment-type output (advice, ideas, writing) is much safer.</span></p>
+  </div>
+</details>
+
+<details class="layer">
+  <summary>❌ <span class="zh-only">迷思 4: "AI 会取代所有工作"</span>
+    <span class="en-only">Myth 4: "AI will replace all jobs"</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>更准确的说法:</strong> AI 会改变所有工作, 但取代的是任务而非职业。 一个律师 90% 的"查判例 + 改文书"工作可能被 AI 代替, 但"在法庭上判断陪审团情绪"这件事 AI 还做不了。</span>
+      <span class="en-only"><strong>More accurate:</strong> AI changes all jobs but replaces <em>tasks</em>, not professions. A lawyer's 90% of "look up cases + draft documents" gets replaced, but "read the jury's mood in court" doesn't.</span></p>
+    <p><span class="zh-only">Ch10 会专门讨论"AI 时代你应该学什么"。</span>
+      <span class="en-only">Ch10 dives into "what to learn in the AI era".</span></p>
+  </div>
+</details>
+
+<details class="layer">
+  <summary>❌ <span class="zh-only">迷思 5: "AI 是一个东西"</span>
+    <span class="en-only">Myth 5: "AI is one thing"</span></summary>
+  <div class="layer-body">
+    <p><span class="zh-only"><strong>事实:</strong> "AI" 是一个上百种技术的统称。 给你画画的 Stable Diffusion 和给你聊天的 Claude, 内部结构差很多。 让无人车开的 AI 又是另一套。</span>
+      <span class="en-only"><strong>Reality:</strong> "AI" covers hundreds of distinct technologies. The Stable Diffusion that paints for you and the Claude you chat with have very different internals. Self-driving cars use yet another stack.</span></p>
+    <p><span class="zh-only">所以"AI 怎么样"这个问题没有答案, 必须问"<strong>哪种</strong> AI 怎么样"。 Ch3 会教你怎么区分不同的 AI 模型。</span>
+      <span class="en-only">"How is AI?" has no answer — you have to ask "how is <strong>which</strong> AI?". Ch3 teaches you to tell them apart.</span></p>
+  </div>
+</details>
+</section>
+
+<!-- ========== 05 ========== -->
+<section id="experiment">
+<h2><span class="zh-only">05 · 一个 30 秒的小实验</span><span class="en-only">05 · A 30-Second Experiment</span></h2>
+
+<p><span class="zh-only">回到 Ch0 你注册的 AI 聊天账号, 把下面这个 <span class="term" data-term="prompt">prompt</span> 贴进去:</span>
+  <span class="en-only">Go back to the AI account you signed up for in Ch0 and paste this:</span></p>
+
+<pre data-lang="prompt"><code>请你用一句话告诉我:你"知道"的最后一件事是什么时间发生的?
+
+然后再回答:今天是几号?</code></pre>
+
+<p><span class="zh-only">观察 AI 怎么回答 —— 它会承认"我的知识截止到 [某个日期]", 而对"今天几号"它要么靠工具 (如果有), 要么承认"不知道, 我没有实时时间感知"。</span>
+  <span class="en-only">Watch the answer — it'll admit "my knowledge cuts off at [some date]" and either ask a tool (if equipped) or admit it doesn't know today's date without external info.</span></p>
+
+<p><span class="zh-only">这一个小实验, 推翻了"AI 无所不知"的迷思: AI 是有"训练截止时间"的, 之后的世界它不知道。</span>
+  <span class="en-only">This single experiment kills the "AI knows everything" myth. AI has a knowledge cutoff — anything after that, it doesn't know.</span></p>
+</section>
+
+<section id="recap">
+<h2><span class="zh-only">06 · 本章要带走的 4 句话</span><span class="en-only">06 · 4 Things to Take Away</span></h2>
+<ol>
+  <li><span class="zh-only"><strong>AI ⊃ ML ⊃ DL ⊃ Transformer ⊃ LLM ⊃ ChatGPT</strong>——一层套一层。 别把这几个词混着用。 这是大学水平讨论 AI 的最小词汇基础。</span>
+    <span class="en-only"><strong>AI ⊃ ML ⊃ DL ⊃ Transformer ⊃ LLM ⊃ ChatGPT</strong> — each nested in the previous. Don't use them interchangeably. Minimum vocabulary for university-level AI discussion.</span></li>
+  <li><span class="zh-only"><strong>2017 是分水岭。</strong> 现在所有 LLM 都站在那一年的 Transformer 论文上。 Ch2 解释 attention 为什么这么神。</span>
+    <span class="en-only"><strong>2017 is the dividing line.</strong> Every modern LLM stands on that year's Transformer paper. Ch2 explains why attention is so transformative.</span></li>
+  <li><span class="zh-only"><strong>AI 不查事实, AI 按概率续写。</strong> 这一条决定你对 AI 几乎所有行为的理解——包括为什么会幻觉。</span>
+    <span class="en-only"><strong>AI doesn't look up facts — it probabilistically continues text.</strong> This determines almost every observed AI behavior — including hallucination.</span></li>
+  <li><span class="zh-only"><strong>"ChatGPT" ≠ "LLM" ≠ "AI"。</strong> 你用的 ChatGPT 是 OpenAI 把 LLM 经过 SFT + RLHF 训练后的产品 (Ch2 §05 详解)。 这层区分很多 AI 用户搞不清, 你应该清楚。</span>
+    <span class="en-only"><strong>"ChatGPT" ≠ "LLM" ≠ "AI".</strong> The ChatGPT you use is OpenAI's product layered on top of an LLM via SFT + RLHF (Ch2 §05 covers in detail). Many AI users blur these — you shouldn't.</span></li>
+</ol>
+</section>
+
+<section id="next-steps">
+<h2><span class="zh-only">下一步</span><span class="en-only">Next Steps</span></h2>
+<div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+  <a class="card" href="../quizzes/ch1-quiz.html">
+    <div class="ch-num">✅ QUIZ</div>
+    <h3><span class="zh-only">本章测验</span><span class="en-only">Chapter Quiz</span></h3>
+    <p><span class="zh-only">6 题, 检测你是否真的理清了概念关系。</span>
+      <span class="en-only">6 questions to test if you've untangled the concepts.</span></p>
+  </a>
+  <a class="card flagship" href="ch2-how-ai-works.html">
+    <div class="ch-num">CH 2 →</div>
+    <h3><span class="zh-only">下一章: AI 怎么工作</span><span class="en-only">Next: How AI Works</span></h3>
+    <p><span class="zh-only">深入 token、attention、Transformer。 看完 Ch2 你会明白为什么 AI 会幻觉。</span>
+      <span class="en-only">Inside tokens, attention, Transformers. After Ch2 you'll understand why AI hallucinates.</span></p>
+  </a>
+</div>
+</section>
+
+<nav class="chapter-nav">
+  <a href="ch0-getting-started.html">
+    <span class="nav-dir">← <span class="zh-only">上一章</span><span class="en-only">Prev</span></span>
+    Ch 0 · <span class="zh-only">开始之前</span><span class="en-only">Getting Started</span>
+  </a>
+  <a class="next" href="ch2-how-ai-works.html">
+    <span class="nav-dir"><span class="zh-only">下一章</span><span class="en-only">Next</span> →</span>
+    Ch 2 · <span class="zh-only">AI 怎么工作</span><span class="en-only">How AI Works</span>
+  </a>
+</nav>
+</main>
+
+<aside class="toc">
+  <h4><span class="zh-only">本章目录</span><span class="en-only">On this page</span></h4>
+  <a href="#elevator">01 · <span class="zh-only">电梯定义</span><span class="en-only">Elevator definition</span></a>
+  <a href="#concept-map">02 · <span class="zh-only">概念地图</span><span class="en-only">Concept map</span></a>
+  <a href="#history">03 · <span class="zh-only">简史</span><span class="en-only">Brief history</span></a>
+  <a href="#not-ai">04 · <span class="zh-only">AI 不是什么</span><span class="en-only">What AI isn't</span></a>
+  <a href="#experiment">05 · <span class="zh-only">30 秒实验</span><span class="en-only">30s experiment</span></a>
+  <a href="#recap">06 · <span class="zh-only">小结</span><span class="en-only">Recap</span></a>
+</aside>
+</div>
+
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/feedback-widget.js" defer></script>
+</body>
+</html>

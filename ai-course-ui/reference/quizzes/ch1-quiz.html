@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 1 Quiz · AI 通识课</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark"></span>
+      <span class="zh-only">AI 通识课</span><span class="en-only">AI Literacy</span></a>
+    <div class="spacer"></div>
+    <nav><a href="../chapters/ch1-what-is-ai.html"><span class="zh-only">← 回 Ch 1</span><span class="en-only">← Back to Ch 1</span></a></nav>
+    <div class="lang-toggle"><button data-lang="zh">中</button><button data-lang="en">EN</button></div>
+  </div>
+</header>
+
+<main class="container">
+<div class="chapter-header">
+  <div class="crumbs"><a href="../index.html"><span class="zh-only">首页</span><span class="en-only">Home</span></a>
+    / <a href="../chapters/ch1-what-is-ai.html">Ch 1</a> / Quiz</div>
+  <h1>Ch 1 Quiz · <span class="zh-only">AI 是什么</span><span class="en-only">What is AI</span></h1>
+  <p class="subtitle"><span class="zh-only">6 题 · 检测概念是否理清</span><span class="en-only">6 questions to check concept clarity</span></p>
+</div>
+
+<div class="quiz-q">
+  <div class="q-num">Q 1 / 6</div>
+  <div class="q-stem"><span class="zh-only">AI / ML / DL / LLM 的关系是?</span>
+    <span class="en-only">How are AI / ML / DL / LLM related?</span></div>
+  <div class="quiz-opt" data-correct="false" data-explain="反过来了。 LLM 是 DL 的一种, DL 是 ML 的一种, ML 是 AI 的一种。">
+    A. AI ⊂ ML ⊂ DL ⊂ LLM
+  </div>
+  <div class="quiz-opt" data-correct="true" data-explain="对。 AI 是最大的圈, LLM 是最小的子集。 一层套一层。">
+    B. AI ⊃ ML ⊃ DL ⊃ LLM
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="错。 ML 是 AI 的一个流派, 不是独立的。">
+    C. <span class="zh-only">它们是 4 个互相独立的概念</span><span class="en-only">All 4 are independent</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="错。 LLM 是 DL 的应用之一, 不是反过来。">
+    D. LLM = DL = ML = AI
+  </div>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-q">
+  <div class="q-num">Q 2 / 6</div>
+  <div class="q-stem"><span class="zh-only">哪一年的事件是现代 AI 真正的"分水岭"?</span>
+    <span class="en-only">Which year was the real "dividing line" for modern AI?</span></div>
+  <div class="quiz-opt" data-correct="false" data-explain="1956 达特茅斯会议是 AI 学科的起点, 但不是现代 AI 的分水岭。">
+    A. 1956 · <span class="zh-only">达特茅斯会议提出 AI</span><span class="en-only">Dartmouth Workshop</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="2012 AlexNet 让深度学习复活, 重要但还不是 LLM 的源头。">
+    B. 2012 · AlexNet
+  </div>
+  <div class="quiz-opt" data-correct="true" data-explain="对。 2017 年 Google 发表 'Attention is All You Need', Transformer 诞生 — 今天所有 LLM 的源头。">
+    C. 2017 · Transformer <span class="zh-only">论文</span><span class="en-only">paper</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="ChatGPT 让 AI 大众化, 但它本身是站在 2017 Transformer 之上的。">
+    D. 2022 · ChatGPT
+  </div>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-q">
+  <div class="q-num">Q 3 / 6</div>
+  <div class="q-stem"><span class="zh-only">"AI 是搜索引擎"这个说法的最大问题是?</span>
+    <span class="en-only">What's the biggest problem with "AI is a search engine"?</span></div>
+  <div class="quiz-opt" data-correct="false" data-explain="速度不是核心区别。">
+    A. <span class="zh-only">AI 比搜索引擎慢</span><span class="en-only">AI is slower than search</span>
+  </div>
+  <div class="quiz-opt" data-correct="true" data-explain="对。 AI 不查任何东西 — 它按概率续写。 这一点是它和搜索引擎根本的不同, 也是为什么它会幻觉。">
+    B. <span class="zh-only">AI 不查任何东西, 它在按概率续写</span><span class="en-only">AI doesn't look anything up — it probabilistically continues text</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="不是这个区别 — 搜索也能给文字结果。">
+    C. <span class="zh-only">搜索只能给链接, AI 能给文字</span><span class="en-only">Search returns links, AI returns text</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="表面差异, 不是本质。">
+    D. <span class="zh-only">搜索免费 AI 收费</span><span class="en-only">Search is free, AI charges</span>
+  </div>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-q">
+  <div class="q-num">Q 4 / 6</div>
+  <div class="q-stem"><span class="zh-only">下面哪个是机器学习 (ML) 的核心思想?</span>
+    <span class="en-only">What's the core idea of Machine Learning?</span></div>
+  <div class="quiz-opt" data-correct="false" data-explain="这是传统编程, 不是 ML。">
+    A. <span class="zh-only">人类把规则写清楚, 机器执行</span><span class="en-only">Humans write rules, machines execute</span>
+  </div>
+  <div class="quiz-opt" data-correct="true" data-explain="对。 ML 反过来 — 你给数据和答案, 机器找出规则。 这是 ML 区别于传统编程的关键。">
+    B. <span class="zh-only">不告诉机器规则, 给它数据让它自己找规律</span><span class="en-only">Don't give rules; give data, let machine find patterns</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="模仿大脑只是深度学习的灵感来源, 不是 ML 整体的核心。">
+    C. <span class="zh-only">模仿人类大脑的神经元</span><span class="en-only">Mimic human neurons</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="ML 不一定要无监督。 监督学习是 ML 的主流之一。">
+    D. <span class="zh-only">完全不用人工标注数据</span><span class="en-only">No human-labeled data needed</span>
+  </div>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-q">
+  <div class="q-num">Q 5 / 6</div>
+  <div class="q-stem"><span class="zh-only">下面哪个 AI 应用不是基于 LLM 的?</span>
+    <span class="en-only">Which of these is NOT based on an LLM?</span></div>
+  <div class="quiz-opt" data-correct="false" data-explain="ChatGPT 当然是 LLM。">A. ChatGPT</div>
+  <div class="quiz-opt" data-correct="false" data-explain="Claude 是 Anthropic 的 LLM。">B. Claude</div>
+  <div class="quiz-opt" data-correct="true" data-explain="对。 1997 年的深蓝是基于"暴力搜索 + 人写的评估函数", 完全没用机器学习, 更没 LLM。 这是 AI ⊃ ML ⊃ LLM 关系的好例子。">
+    C. <span class="zh-only">深蓝 (1997 年下棋战胜卡斯帕罗夫的程序)</span>
+    <span class="en-only">Deep Blue (1997 chess program that beat Kasparov)</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="DeepSeek 是国产 LLM。">D. DeepSeek</div>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz-q">
+  <div class="q-num">Q 6 / 6</div>
+  <div class="q-stem"><span class="zh-only">关于 GenAI (生成式 AI), 下面哪句话最准确?</span>
+    <span class="en-only">Which is the most accurate about GenAI?</span></div>
+  <div class="quiz-opt" data-correct="false" data-explain="GenAI 不是新技术, 是 LLM 应用的新名字。">
+    A. GenAI <span class="zh-only">是 2022 年之后才出现的新型 AI 技术</span>
+    <span class="en-only">is a brand-new tech after 2022</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="GenAI 不限于文字, 也包括图像、音频、视频。">
+    B. GenAI <span class="zh-only">只能生成文字</span><span class="en-only">can only generate text</span>
+  </div>
+  <div class="quiz-opt" data-correct="true" data-explain="对。 关键区分: 判别式 (是猫不是猫) vs 生成式 (画一只猫给你)。 GenAI 包括所有 LLM、图像生成、音频生成、视频生成。">
+    C. <span class="zh-only">GenAI 是"能生成新内容"的 AI, 区别于"只能判别/预测"的 AI</span>
+    <span class="en-only">GenAI is AI that "generates new content", as opposed to AI that "only classifies/predicts"</span>
+  </div>
+  <div class="quiz-opt" data-correct="false" data-explain="GenAI = generative AI, generative 是核心词。">
+    D. GenAI <span class="zh-only">的 Gen 代表 "general" (通用)</span>
+    <span class="en-only">"Gen" means "general"</span>
+  </div>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="callout success" style="margin-top:48px;">
+  <p><span class="zh-only">做完了。 错 2 题以下说明概念清晰了, 可以进 Ch2。 错 3+ 建议回章节再看一遍"概念地图"和"AI 不是什么"两节。</span>
+    <span class="en-only">Done. ≤2 wrong = concepts solid, move on. 3+ wrong = revisit "concept map" and "what AI isn't" sections.</span></p>
+</div>
+
+<nav class="chapter-nav">
+  <a href="../chapters/ch1-what-is-ai.html"><span class="nav-dir">← <span class="zh-only">回章节</span><span class="en-only">Back</span></span>Ch 1</a>
+  <a class="next" href="../chapters/ch2-how-ai-works.html"><span class="nav-dir"><span class="zh-only">下一章</span><span class="en-only">Next</span> →</span>Ch 2</a>
+</nav>
+</main>
+
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/feedback-widget.js" defer></script>
+</body>
+</html>

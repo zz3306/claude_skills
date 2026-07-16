@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 4 Lab · 改造烂 Prompt · AI 通识课</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark"></span>
+      <span class="zh-only">AI 通识课</span><span class="en-only">AI Literacy</span>
+    </a>
+    <div class="spacer"></div>
+    <nav>
+      <a href="../chapters/ch4-prompt-engineering.html"><span class="zh-only">← 回 Ch 4</span><span class="en-only">← Back to Ch 4</span></a>
+      <a href="../quizzes/ch4-quiz.html"><span class="zh-only">本章测验</span><span class="en-only">Quiz</span></a>
+    </nav>
+    <div class="lang-toggle">
+      <button data-lang="zh">中</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="chapter-header">
+  <div class="crumbs"><a href="../index.html"><span class="zh-only">首页</span><span class="en-only">Home</span></a>
+  / <a href="../chapters/ch4-prompt-engineering.html">Ch 4</a> / Lab</div>
+  <h1>
+    <span class="zh-only">Lab: 把烂 Prompt 改成好 Prompt</span>
+    <span class="en-only">Lab: From Bad Prompt to Good Prompt</span>
+  </h1>
+  <p class="subtitle">
+    <span class="zh-only">5 个真实场景的改造练习, 每个都给你"原始烂 prompt → 三个改进版本", 你自己试, 看输出差距。</span>
+    <span class="en-only">5 real-scenario rewrite exercises. Each shows a "raw bad prompt → 3 improved versions". Try them yourself, compare outputs.</span>
+  </p>
+</div>
+
+<div class="callout info">
+  <div class="callout-title">🛠️ <span class="zh-only">你需要什么</span><span class="en-only">What you need</span></div>
+  <ul style="margin:6px 0;">
+    <li><span class="zh-only">一个 AI 聊天账号 (Claude / DeepSeek / ChatGPT 任一)</span>
+      <span class="en-only">An AI chat account (Claude / DeepSeek / ChatGPT — any)</span></li>
+    <li><span class="zh-only">大约 40 分钟</span><span class="en-only">~40 minutes</span></li>
+    <li><span class="zh-only">一个文档 (Word/Notion) 记录你的输出对比</span>
+      <span class="en-only">A doc (Word/Notion) to log your before/after outputs</span></li>
+  </ul>
+</div>
+
+<div class="callout tip">
+  <div class="callout-title">🎯 <span class="zh-only">怎么做这个实验</span><span class="en-only">How to do this lab</span></div>
+  <ol style="margin:6px 0;">
+    <li><span class="zh-only">每个练习有 4 个版本 (v0 烂版 + v1/v2/v3 改进)。 都点 📋 复制到 AI 里跑一遍。</span>
+      <span class="en-only">Each exercise has 4 versions (v0 bad + v1/v2/v3 improved). Copy each into AI and run.</span></li>
+    <li><span class="zh-only">⚠️ 每个版本必须开 <strong>新对话</strong>! 否则前面 prompt 的输出会污染后面。</span>
+      <span class="en-only">⚠️ Use a <strong>new chat</strong> for each version! Otherwise earlier output contaminates later runs.</span></li>
+    <li><span class="zh-only">对比 4 次输出, 在文档里记下你的观察: "这次比上次多了/少了什么?"</span>
+      <span class="en-only">Compare the 4 outputs, write down what changed: "this run added/lost what vs the last?"</span></li>
+  </ol>
+</div>
+
+<!-- ============================================
+     LAB 1
+     ============================================ -->
+<div class="lab-step" data-step="1">
+  <h3><span class="zh-only">Lab 1 · 让 AI 解释一个物理概念</span><span class="en-only">Lab 1 · Have AI Explain a Physics Concept</span></h3>
+  <p><span class="zh-only"><strong>场景:</strong> 高二, 你刚学完"动量"这一节, 公式背得很熟, 但不理解"为什么动量守恒"。</span>
+    <span class="en-only"><strong>Scenario:</strong> Junior year, you finished the "momentum" lesson. You can recite the formulas but don't get <em>why</em> momentum is conserved.</span></p>
+
+  <details class="layer">
+    <summary>v0 · <span class="zh-only">烂版 (大多数人这样写)</span><span class="en-only">Bad (how most students write it)</span>
+      <span class="layer-tag" style="background:#fee2e2;color:#b91c1c;">问题: 模糊</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="解释一下动量守恒">📋 Copy v0</button>
+      <pre data-lang="prompt"><code>解释一下动量守恒</code></pre>
+      <p><strong><span class="zh-only">预期输出问题:</span><span class="en-only">Expected output problems:</span></strong>
+        <span class="zh-only">维基百科风。 一段公式 + 一段例子。 你读完还是不懂"为什么"。</span>
+        <span class="en-only">Wikipedia-style. Formulas + one example. You still don't get the "why".</span></p>
+    </div>
+  </details>
+
+  <details class="layer">
+    <summary>v1 · <span class="zh-only">加角色和水平 (+R, +C)</span><span class="en-only">Add role and your level (+R, +C)</span>
+      <span class="layer-tag" style="background:#fef3c7;color:#92400e;">改进: 中</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="你是一位物理老师。 我是高二, 刚学完动量这一节, 公式我都会背, 但不理解'为什么动量守恒'。 请解释。">📋 Copy v1</button>
+      <pre data-lang="prompt"><code>你是一位物理老师。 我是高二, 刚学完动量这一节, 公式我都会背, 但不理解"为什么动量守恒"。 请解释。</code></pre>
+      <p><span class="zh-only">AI 现在知道 1) 用老师口吻 2) 你不是零基础 3) 你的具体困惑。 已经能给出针对性回答了。</span>
+        <span class="en-only">AI now knows 1) use a teacher's voice 2) you're not a beginner 3) your specific confusion. The answer becomes targeted.</span></p>
+    </div>
+  </details>
+
+  <details class="layer">
+    <summary>v2 · <span class="zh-only">加结构和限制 (+F, +Restrictions)</span><span class="en-only">Add structure and constraints (+F, +Restrictions)</span>
+      <span class="layer-tag" style="background:#dbeafe;color:#1e40af;">改进: 大</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="你是一位物理老师。 我是高二, 刚学完动量这一节, 公式都会用, 但不理解'为什么'动量守恒。
+
+请按以下结构回答:
+1. **一句话回答**: 动量守恒最根本的原因是什么?
+2. **生活类比**: 用一个不涉及公式的日常例子, 让我感受到这个原理
+3. **从牛顿三定律推一遍**: 用最少的步骤, 从牛顿第三定律推出动量守恒
+4. **常见误解**: 学生最容易在这里搞混什么? (我猜大概率有 2-3 个)
+5. **一道思考题**: 给我一个不需要算数, 但要用动量守恒'思想'判断的小题, 帮我测试懂没懂
+
+不要用洛伦兹力, 不要用相对论 (这些我还没学)。">📋 Copy v2</button>
+      <pre data-lang="prompt"><code>你是一位物理老师。 我是高二, 刚学完动量这一节, 公式都会用, 但不理解"为什么"动量守恒。
+
+请按以下结构回答:
+1. **一句话回答**: 动量守恒最根本的原因是什么?
+2. **生活类比**: 用一个不涉及公式的日常例子, 让我感受到这个原理
+3. **从牛顿三定律推一遍**: 用最少的步骤, 从牛顿第三定律推出动量守恒
+4. **常见误解**: 学生最容易在这里搞混什么? (我猜大概率有 2-3 个)
+5. **一道思考题**: 给我一个不需要算数, 但要用动量守恒"思想"判断的小题, 帮我测试懂没懂
+
+不要用洛伦兹力, 不要用相对论 (这些我还没学)。</code></pre>
+    </div>
+  </details>
+
+  <details class="layer">
+    <summary>v3 · <span class="zh-only">加 CoT 和互动 (+CoT, +互动)</span><span class="en-only">Add CoT and interactivity (+CoT)</span>
+      <span class="layer-tag" style="background:#dcfce7;color:#15803d;">改进: 大</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="你是一位风格像费曼的物理老师, 我是高二学生。
+
+我已经会用动量公式, 但不懂'为什么动量守恒'。
+
+请按以下方式教我:
+1. 先不要直接给答案。 问我一个引导性问题, 这个问题应该能让我意识到'守恒'的本质是从牛顿第三定律来的。
+2. 我回答后, 根据我的回答深度, 决定下一个引导问题
+3. 用最多 5 轮一问一答, 让我'自己想出'动量守恒的原因
+4. 全部结束后, 用一段话总结这场对话, 突出我刚刚悟到了什么
+
+约束: 不要用相对论, 不要用洛伦兹力 (我还没学)。 不要一上来就给答案。
+
+请从你的第一个引导问题开始。">📋 Copy v3</button>
+      <pre data-lang="prompt"><code>你是一位风格像费曼的物理老师, 我是高二学生。
+
+我已经会用动量公式, 但不懂"为什么动量守恒"。
+
+请按以下方式教我:
+1. 先不要直接给答案。 问我一个引导性问题, 这个问题应该能让我意识到"守恒"的本质是从牛顿第三定律来的。
+2. 我回答后, 根据我的回答深度, 决定下一个引导问题
+3. 用最多 5 轮一问一答, 让我"自己想出"动量守恒的原因
+4. 全部结束后, 用一段话总结这场对话, 突出我刚刚悟到了什么
+
+约束: 不要用相对论, 不要用洛伦兹力 (我还没学)。 不要一上来就给答案。
+
+请从你的第一个引导问题开始。</code></pre>
+      <p><span class="zh-only"><strong>这一版的关键升级:</strong> AI 不再是"告诉你答案"模式, 而是"陪你想出答案"模式。 学习效果差一个数量级。</span>
+        <span class="en-only"><strong>The key upgrade:</strong> AI is no longer "tell-you-the-answer" mode, it's "think-with-you" mode. Learning value is an order of magnitude higher.</span></p>
+    </div>
+  </details>
+
+  <div class="callout warn" style="margin-top:18px;">
+    <div class="callout-title">📝 <span class="zh-only">你的作业</span><span class="en-only">Your homework</span></div>
+    <ol>
+      <li><span class="zh-only">4 个版本在新对话里都跑一遍</span><span class="en-only">Run all 4 versions in new chats</span></li>
+      <li><span class="zh-only">回答这个问题: <strong>哪一版让你真的"懂了为什么"?</strong></span>
+        <span class="en-only">Answer: <strong>which version actually made you understand the "why"?</strong></span></li>
+      <li><span class="zh-only">把 v3 的模板存到你的"prompt 收藏夹" (一个 Notion 页面或一个 .md 文件)</span>
+        <span class="en-only">Save v3 to your "prompt library" (a Notion page or .md file)</span></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============================================
+     LAB 2
+     ============================================ -->
+<div class="lab-step" data-step="2">
+  <h3><span class="zh-only">Lab 2 · 英语单词卡 (用 Few-shot)</span><span class="en-only">Lab 2 · English Vocab Cards (Use Few-shot)</span></h3>
+  <p><span class="zh-only"><strong>场景:</strong> 你想用 AI 给一批生词做"高考词卡"格式, 但你要 AI 严格按你的格式来, 而不是 AI 自己发挥。</span>
+    <span class="en-only"><strong>Scenario:</strong> You want AI to format vocab cards in a very specific way for exam prep — and you need AI to follow YOUR format, not invent its own.</span></p>
+
+  <details class="layer">
+    <summary>v0 · <span class="zh-only">烂版 — 只描述, 不示例</span><span class="en-only">Bad — describe but no examples</span>
+      <span class="layer-tag" style="background:#fee2e2;color:#b91c1c;">问题</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="帮我把这些单词做成高考词卡: melancholy, resilient, nuance">📋 Copy v0</button>
+      <pre data-lang="prompt"><code>帮我把这些单词做成高考词卡: melancholy, resilient, nuance</code></pre>
+      <p><span class="zh-only"><strong>你会看到:</strong> AI 自己想了一个格式 —— 可能是表格、可能是 bullet, 可能加了你不想要的"同义词反义词", 也可能漏了你想要的"词根记忆"。</span>
+        <span class="en-only"><strong>You'll see:</strong> AI invents a format — maybe a table, maybe bullets. May include synonyms you didn't want, may skip the "etymology" you do want.</span></p>
+    </div>
+  </details>
+
+  <details class="layer">
+    <summary>v1 · <span class="zh-only">改进: 给 1 个示例 (1-shot)</span><span class="en-only">Improved: give 1 example (1-shot)</span>
+      <span class="layer-tag" style="background:#fef3c7;color:#92400e;">改进: 中</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="请按下面这个格式做词卡:
+
+&lt;example&gt;
+词: ubiquitous /juːˈbɪkwɪtəs/ adj.
+释义: 无所不在的
+词根记忆: ubi (拉丁: 在哪里) → 哪里都有
+联想画面: 咖啡店、机场、地铁的 Wi-Fi
+高考造句: Smartphones have become ubiquitous in modern life.
+易混: pervasive
+&lt;/example&gt;
+
+现在做这三个: melancholy, resilient, nuance">📋 Copy v1</button>
+      <pre data-lang="prompt"><code>请按下面这个格式做词卡:
+
+&lt;example&gt;
+词: ubiquitous /juːˈbɪkwɪtəs/ adj.
+释义: 无所不在的
+词根记忆: ubi (拉丁: 在哪里) → 哪里都有
+联想画面: 咖啡店、机场、地铁的 Wi-Fi
+高考造句: Smartphones have become ubiquitous in modern life.
+易混: pervasive
+&lt;/example&gt;
+
+现在做这三个: melancholy, resilient, nuance</code></pre>
+      <p><span class="zh-only">AI 现在会模仿你的格式, 但还可能"过拟合" —— 比如 nuance 没有明显词根, 它可能硬编一个。</span>
+        <span class="en-only">AI mimics your format, but may "over-fit" — e.g., nuance has no obvious root, so it may fabricate one.</span></p>
+    </div>
+  </details>
+
+  <details class="layer">
+    <summary>v2 · <span class="zh-only">3 个示例 + 多样性 (3-shot 标准做法)</span><span class="en-only">3 examples + diverse (the right way)</span>
+      <span class="layer-tag" style="background:#dcfce7;color:#15803d;">改进: 大</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="请按下面 3 个示例的格式做词卡。 注意我故意挑了三种类型: ① 有清晰词根的; ② 没词根但有词源故事的; ③ 完全没词根记忆点的。
+
+&lt;example word='ubiquitous'&gt;
+词: ubiquitous /juːˈbɪkwɪtəs/ adj.
+释义: 无所不在的
+记忆点 [词根]: ubi (拉丁: 在哪里) → 哪里都有
+联想画面: 咖啡店、机场、地铁的 Wi-Fi
+高考造句: Smartphones have become ubiquitous in modern life.
+易混词: pervasive (强调'渗透性')
+&lt;/example&gt;
+
+&lt;example word='quarantine'&gt;
+词: quarantine /ˈkwɒrəntiːn/ n. &amp; v.
+释义: 隔离 (检疫)
+记忆点 [词源故事]: 来自意大利语 quaranta (40 天) —— 14 世纪威尼斯港要求外来船只隔离 40 天才能上岸
+联想画面: 黑死病时期的码头
+高考造句: The patients were placed in quarantine for two weeks.
+易混词: isolation (更通用)
+&lt;/example&gt;
+
+&lt;example word='whim'&gt;
+词: whim /wɪm/ n.
+释义: 一时兴起的念头
+记忆点 [无词根, 用反义对照]: 不是深思熟虑 (deliberation), 而是脑子一热
+联想画面: 走在街上突然决定买一杯奶茶
+高考造句: She bought the dress on a whim.
+易混词: caprice (近义, 更书面)
+&lt;/example&gt;
+
+现在按相同格式做这三个: melancholy, resilient, nuance">📋 Copy v2</button>
+      <pre data-lang="prompt"><code>请按下面 3 个示例的格式做词卡。 注意我故意挑了三种类型: ① 有清晰词根; ② 没词根但有词源故事; ③ 完全没词根记忆点的。
+
+[3 个示例如上 — 完整版见复制按钮]
+
+现在按相同格式做这三个: melancholy, resilient, nuance</code></pre>
+      <p><span class="zh-only"><strong>关键:</strong> 三个示例故意挑了三种"难度", 这就是 Anthropic 推荐的 <strong>diversity (多样性)</strong>。 AI 看完会知道: nuance 没词根没关系, 用"反义对照"或"词源故事"即可, 不要硬编。</span>
+        <span class="en-only"><strong>Key:</strong> the 3 examples deliberately cover 3 "difficulty types" — this is Anthropic's recommended <strong>diversity</strong>. AI sees: nuance without a root is fine, use a "story" or "contrast" instead of fabricating.</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- ============================================
+     LAB 3
+     ============================================ -->
+<div class="lab-step" data-step="3">
+  <h3><span class="zh-only">Lab 3 · 数学题 (CoT vs 直接问)</span><span class="en-only">Lab 3 · Math Problems (CoT vs direct)</span></h3>
+  <p><span class="zh-only"><strong>场景:</strong> 一道带"陷阱"的概率题。 直接问 AI 容易答错。 加 CoT 后正确率显著提升。 这个 lab 让你<strong>亲眼看到差异</strong>。</span>
+    <span class="en-only"><strong>Scenario:</strong> A probability problem with a trap. AI often gets it wrong if asked directly. With CoT, accuracy jumps. This lab lets you <strong>watch the gap live</strong>.</span></p>
+
+  <div class="callout info">
+    <p><span class="zh-only"><strong>题目:</strong> 一家三口, 已知至少有一个女孩。 问"另一个是男孩"的概率是多少?</span>
+      <span class="en-only"><strong>Problem:</strong> A family has two children. Given at least one is a girl, what's the probability the other is a boy?</span></p>
+    <p style="font-size:13px;color:var(--text-muted);">
+      <span class="zh-only">正确答案: 2/3 (这是著名的"男孩女孩悖论", 大多数人 —— 包括 AI 直接问 —— 会答 1/2)。</span>
+      <span class="en-only">Correct answer: 2/3 (the famous "Boy-Girl Paradox" — most people, AI included if asked directly, answer 1/2).</span></p>
+  </div>
+
+  <details class="layer">
+    <summary>v0 · <span class="zh-only">直接问</span><span class="en-only">Direct</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="一家有两个小孩, 已知至少有一个是女孩。 另一个是男孩的概率是多少? 直接给答案。">📋 Copy</button>
+      <pre data-lang="prompt"><code>一家有两个小孩, 已知至少有一个是女孩。 另一个是男孩的概率是多少? 直接给答案。</code></pre>
+      <p><strong><span class="zh-only">观察:</span><span class="en-only">Observe:</span></strong>
+        <span class="zh-only">AI (尤其是不开 thinking 模式的) 大概率答 1/2, 错的。</span>
+        <span class="en-only">AI (especially without thinking mode) usually answers 1/2 — wrong.</span></p>
+    </div>
+  </details>
+
+  <details class="layer">
+    <summary>v1 · <span class="zh-only">加 CoT</span><span class="en-only">Add CoT</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="一家有两个小孩, 已知至少有一个是女孩。 另一个是男孩的概率是多少?
+
+请按以下步骤思考, 把每一步写在 &lt;thinking&gt; 标签里, 最后答案写在 &lt;answer&gt; 标签里:
+
+1. 列出所有可能的"两个孩子"组合 (考虑顺序)
+2. 在这些组合中, 划掉不符合"至少一个女孩"的
+3. 在剩下的组合里, 数有多少个含"恰好一个男孩"的
+4. 用上一步的数 除以 剩下的总数 = 答案">📋 Copy</button>
+      <pre data-lang="prompt"><code>一家有两个小孩, 已知至少有一个是女孩。 另一个是男孩的概率是多少?
+
+请按以下步骤思考, 把每一步写在 &lt;thinking&gt; 标签里, 最后答案写在 &lt;answer&gt; 标签里:
+
+1. 列出所有可能的"两个孩子"组合 (考虑顺序)
+2. 在这些组合中, 划掉不符合"至少一个女孩"的
+3. 在剩下的组合里, 数有多少个含"恰好一个男孩"的
+4. 用上一步的数 除以 剩下的总数 = 答案</code></pre>
+      <p><span class="zh-only">这次 AI 几乎一定能答对 (2/3), 因为你"画好了思考路径", 它只需要照着走。</span>
+        <span class="en-only">Now AI almost always gets 2/3 right — you mapped the path, it just walks it.</span></p>
+    </div>
+  </details>
+
+  <details class="layer">
+    <summary>v2 · <span class="zh-only">加 self-check (顶级技巧)</span><span class="en-only">Add self-check (top-tier technique)</span></summary>
+    <div class="layer-body">
+      <button class="prompt-copy" data-copy="一家有两个小孩, 已知至少有一个是女孩。 另一个是男孩的概率是多少?
+
+请按以下步骤:
+1. &lt;thinking&gt; 一步步推理 &lt;/thinking&gt;
+2. &lt;answer&gt; 给出答案 &lt;/answer&gt;
+3. &lt;check&gt;
+   验证答案: 大多数人直觉认为答案是 1/2, 你的答案如果是 1/2, 请重新审视'已知条件'是怎么改变样本空间的; 如果不是 1/2, 解释为什么直觉错了。
+&lt;/check&gt;">📋 Copy</button>
+      <pre data-lang="prompt"><code>... [前面同 v1] ...
+3. &lt;check&gt;
+   验证答案: 大多数人直觉认为答案是 1/2, 你的答案如果是 1/2,
+   请重新审视'已知条件'是怎么改变样本空间的;
+   如果不是 1/2, 解释为什么直觉错了。
+&lt;/check&gt;</code></pre>
+      <p><span class="zh-only">这是 Anthropic 推荐的 <strong>self-check CoT</strong>。 AI 自己回头验证答案, 进一步降低出错率。</span>
+        <span class="en-only">This is Anthropic's recommended <strong>self-check CoT</strong>. AI verifies its own answer, further reducing errors.</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- ============================================
+     LAB 4
+     ============================================ -->
+<div class="lab-step" data-step="4">
+  <h3><span class="zh-only">Lab 4 · "苏格拉底式"提问改造</span><span class="en-only">Lab 4 · Socratic Conversion</span></h3>
+  <p><span class="zh-only"><strong>场景:</strong> 拿一个你平时直接问 AI 的问题, 改造成"让 AI 反问你"的版本, 体会用 AI 学习的两种模式。</span>
+    <span class="en-only"><strong>Scenario:</strong> Take a question you normally ask AI directly, rewrite it so AI asks YOU questions instead — experience the two modes of learning with AI.</span></p>
+
+  <div class="prompt-compare">
+    <div class="prompt-box bad">
+      <span class="label">❌ <span class="zh-only">老模式: 让 AI 教你</span><span class="en-only">Old mode: AI teaches you</span></span>
+      <button class="prompt-copy" data-copy="解释一下'机会成本'是什么意思">Copy</button>
+      <div class="prompt-text">解释一下"机会成本"是什么意思</div>
+      <p class="why"><span class="zh-only">AI 给一段定义。 你"知道了"但没"想过"。</span>
+        <span class="en-only">AI gives a definition. You "know it" but never "thought about it".</span></p>
+    </div>
+    <div class="prompt-box good">
+      <span class="label">✓ <span class="zh-only">新模式: AI 让你想</span><span class="en-only">New mode: AI makes you think</span></span>
+      <button class="prompt-copy" data-copy="你是一位苏格拉底式经济学老师。 我想理解'机会成本'。
+
+不要给我定义。 给我一个具体场景 (我能秒懂的, 比如'放学后是去打球还是去自习'), 然后问我 3 个连续的问题, 让我自己从这个场景里'推导出'机会成本的概念。
+
+每问一个问题等我回答, 再根据我的回答决定下一个问题。 全部结束后, 用一句话告诉我我刚刚自己想出了什么.">Copy</button>
+      <div class="prompt-text">你是一位苏格拉底式经济学老师。 我想理解"机会成本"。
+
+不要给我定义。 给我一个具体场景 (我能秒懂的, 比如"放学后是去打球还是去自习"), 然后问我 3 个连续的问题, 让我自己从这个场景里"推导出"机会成本的概念。
+
+每问一个问题等我回答, 再根据我的回答决定下一个问题。 全部结束后, 用一句话告诉我我刚刚自己想出了什么。</div>
+      <p class="why"><span class="zh-only">你需要"想", 才能"懂"。 AI 变成你的对话伙伴, 不是教科书。</span>
+        <span class="en-only">You have to <em>think</em> to <em>understand</em>. AI becomes a sparring partner, not a textbook.</span></p>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-title">📝 <span class="zh-only">练习</span><span class="en-only">Exercise</span></div>
+    <p><span class="zh-only">挑一个你最近想问 AI 的真实问题 (可以是学习的、生活的、未来选择的), 把它改造成"苏格拉底版本"。 这个技巧的本质是: <strong>让 AI 帮你建立你自己的思考过程</strong>, 而不是替你思考。</span>
+      <span class="en-only">Pick a real question you've been meaning to ask AI (about study, life, future choices), and rewrite it Socratic-style. The essence: <strong>let AI build your thinking process</strong>, not replace it.</span></p>
+  </div>
+</div>
+
+<!-- ============================================
+     LAB 5
+     ============================================ -->
+<div class="lab-step" data-step="5">
+  <h3><span class="zh-only">Lab 5 · 三家 AI 对比实验</span><span class="en-only">Lab 5 · Three-AI Comparison</span></h3>
+  <p><span class="zh-only"><strong>场景:</strong> 把同一个 prompt 同时丢给 Claude / ChatGPT / DeepSeek (或 Gemini), 看输出的真实差异。 这是判断"哪个 AI 适合哪类任务"的最快方法。</span>
+    <span class="en-only"><strong>Scenario:</strong> Throw the same prompt at Claude / ChatGPT / DeepSeek (or Gemini). See real differences. Fastest way to learn "which AI for which task".</span></p>
+
+  <h4><span class="zh-only">📋 测试 prompt (复制后在三家都跑)</span><span class="en-only">📋 The test prompt (run in all 3)</span></h4>
+  <button class="prompt-copy" data-copy="你是一位资深英语教师。
+
+下面这段文字是一名高三学生写的英语议论文开头。 请按以下结构反馈:
+1. 我现在的水平大概在 CEFR 哪个等级? (A2 / B1 / B2 / C1)
+2. 你看出的 3 个最影响 perceived sophistication 的小毛病 (引用原句)
+3. 如果让你只改一处, 改哪里? 给出 before / after 对比
+4. 用 1 句话告诉我'如果想从当前水平到下一个等级, 应该刻意练习什么'
+
+&lt;essay_opening&gt;
+In today's society, technology has changed people's life in many ways. Some people think it has more advantages than disadvantages, while others hold a different opinion. As for me, I think technology has both good and bad effects on us, and we should use it wisely.
+&lt;/essay_opening&gt;">📋 Copy the test prompt</button>
+
+  <pre data-lang="prompt"><code>你是一位资深英语教师。
+
+下面这段文字是一名高三学生写的英语议论文开头。 请按以下结构反馈:
+1. 我现在的水平大概在 CEFR 哪个等级? (A2 / B1 / B2 / C1)
+2. 你看出的 3 个最影响 perceived sophistication 的小毛病 (引用原句)
+3. 如果让你只改一处, 改哪里? 给出 before / after 对比
+4. 用 1 句话告诉我"如果想从当前水平到下一个等级, 应该刻意练习什么"
+
+&lt;essay_opening&gt;
+In today's society, technology has changed people's life in many ways. Some people think it has more advantages than disadvantages, while others hold a different opinion. As for me, I think technology has both good and bad effects on us, and we should use it wisely.
+&lt;/essay_opening&gt;</code></pre>
+
+  <h4><span class="zh-only">📊 观察表 (建议填一下)</span><span class="en-only">📊 Observation table (fill this in)</span></h4>
+
+  <table>
+  <thead><tr>
+    <th></th>
+    <th>Claude</th>
+    <th>ChatGPT</th>
+    <th>DeepSeek</th>
+  </tr></thead>
+  <tbody>
+  <tr><td><span class="zh-only">CEFR 评估</span><span class="en-only">CEFR estimate</span></td><td>___</td><td>___</td><td>___</td></tr>
+  <tr><td><span class="zh-only">挑出的问题是否具体</span><span class="en-only">Issues called out specific?</span></td><td>___</td><td>___</td><td>___</td></tr>
+  <tr><td><span class="zh-only">before/after 对比质量</span><span class="en-only">Before/after rewrite quality</span></td><td>___</td><td>___</td><td>___</td></tr>
+  <tr><td><span class="zh-only">最后一句行动建议是否落地</span><span class="en-only">Final advice actionable?</span></td><td>___</td><td>___</td><td>___</td></tr>
+  <tr><td><span class="zh-only">总分 (1-10)</span><span class="en-only">Overall (1-10)</span></td><td>___</td><td>___</td><td>___</td></tr>
+  </tbody>
+  </table>
+
+  <div class="callout tip">
+    <p><span class="zh-only"><strong>反思问题:</strong> 看完三家的输出, 你会发现它们的"性格"很不一样。 Claude 通常更结构化、更教学; ChatGPT 更平均、综合性强; DeepSeek 中文反馈直接但偶尔笼统。 把你的观察记下来 —— 这就是你以后选 AI 的依据。</span>
+      <span class="en-only"><strong>Reflect:</strong> All three have distinct "personalities". Claude tends to be more structured and teacher-like; ChatGPT is the most balanced; DeepSeek is direct in Chinese but sometimes broad. Write down your observations — that's your future "which AI for what" cheat sheet.</span></p>
+  </div>
+</div>
+
+<!-- =============================
+     FINAL TAKEAWAYS
+     ============================= -->
+<section style="margin-top:48px;">
+<h2><span class="zh-only">实验结束 · 三个永远不要忘的</span><span class="en-only">After the Lab · 3 Things to Remember</span></h2>
+
+<div class="callout success">
+  <ol>
+    <li><span class="zh-only"><strong>没跑过新对话不算改 prompt。</strong> 同一个对话里你"觉得"prompt 变好了, 大概率是 AI 记得你之前讲过什么。 想知道 prompt 真的好不好, 必须开新对话。</span>
+      <span class="en-only"><strong>If you didn't open a new chat, you didn't really test the new prompt.</strong> "It feels better now" might just be the AI remembering what you said earlier. To truly test, always start fresh.</span></li>
+    <li><span class="zh-only"><strong>给示例比写描述高效 10 倍。</strong> 描述 1000 字, 3 个示例的效果都比不上。 真要省时间, 投资在写示例上。</span>
+      <span class="en-only"><strong>Examples beat descriptions 10×.</strong> 1000 words of description loses to 3 examples. Invest your time in examples.</span></li>
+    <li><span class="zh-only"><strong>Restrictions 是隐藏王牌。</strong> "不要用 X, 不要直接给答案" —— 这种"不许做"的指令, 往往是把 AI 从平庸输出推到优秀输出的最后一脚。</span>
+      <span class="en-only"><strong>Restrictions are the secret weapon.</strong> "Don't use X, don't reveal the answer outright" — these "don't" instructions are usually the last kick that pushes AI from mediocre to great.</span></li>
+  </ol>
+</div>
+
+<h3><span class="zh-only">建立你自己的 Prompt 仓库</span><span class="en-only">Build Your Own Prompt Library</span></h3>
+<p><span class="zh-only">建一个 Notion 页或 GitHub 私有仓库, 命名 "my-prompts"。 每次写出一个"对你有效"的 prompt, 就把它存进去, 加 3 行注释:</span>
+  <span class="en-only">Create a Notion page or private GitHub repo called "my-prompts". Every time a prompt works well for you, save it with 3 lines of notes:</span></p>
+<ul>
+  <li><span class="zh-only">这个 prompt 是为什么场景写的?</span><span class="en-only">What scenario was this for?</span></li>
+  <li><span class="zh-only">用了什么核心技巧? (RTCFR 哪几项 / few-shot / CoT / ...)</span>
+    <span class="en-only">What core technique did I use? (which RTCFR letters / few-shot / CoT / ...)</span></li>
+  <li><span class="zh-only">下次什么时候应该再用?</span><span class="en-only">When should I reuse it?</span></li>
+</ul>
+<p><span class="zh-only">3 个月后回看, 你会发现自己有一整套"个人 AI 使用框架"了。</span>
+  <span class="en-only">3 months in, you'll have a full personal AI-usage playbook.</span></p>
+</section>
+
+<nav class="chapter-nav">
+  <a href="../quizzes/ch4-quiz.html">
+    <span class="nav-dir">← Quiz</span>
+    <span class="zh-only">先做测验</span><span class="en-only">Take the quiz</span>
+  </a>
+  <a class="next" href="../chapters/ch5-tools.html">
+    <span class="nav-dir"><span class="zh-only">下一章</span><span class="en-only">Next</span> →</span>
+    Ch 5 · AI Tools
+  </a>
+</nav>
+
+</main>
+
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/feedback-widget.js" defer></script>
+</body>
+</html>

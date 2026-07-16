@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 通识课 · AI Literacy for University Students</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>
+      <span class="zh-only">AI 通识课</span><span class="en-only">AI Literacy</span>
+    </a>
+    <div class="spacer"></div>
+    <nav>
+      <a href="#chapters"><span class="zh-only">章节</span><span class="en-only">Chapters</span></a>
+      <a href="#roadmap"><span class="zh-only">学习路径</span><span class="en-only">Roadmap</span></a>
+      <a href="#how"><span class="zh-only">怎么学</span><span class="en-only">How to Learn</span></a>
+    </nav>
+    <div class="lang-toggle">
+      <button data-lang="zh">中</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>
+    <span class="zh-only">从用 AI，到懂 AI，到造 AI</span>
+    <span class="en-only">Use AI. Understand AI. Build with AI.</span>
+  </h1>
+  <p class="tagline">
+    <span class="zh-only">一门写给大学生的 AI 通识课。11 章，从"AI 是什么"到"做出你自己的 Agent"再到"攻破一个 Agent"。渐进式深度——入门友好, Layer 2/3 上到大学水平。Lab 全部免费 (本地跑 / 免费工具 / DeepSeek 免费额度)。</span>
+    <span class="en-only">An AI literacy course for university students. 11 chapters, from "what is AI" to "build your own agent" to "break one". Progressive depth — beginner-friendly intro, university-level layers 2/3. All labs free (local / free tools / DeepSeek's free tier).</span>
+  </p>
+  <div class="cta-row">
+    <a href="chapters/ch0-getting-started.html" class="btn btn-accent">
+      <span class="zh-only">开始第 0 章 →</span><span class="en-only">Start Chapter 0 →</span>
+    </a>
+    <a href="#chapters" class="btn">
+      <span class="zh-only">看章节列表</span><span class="en-only">See all chapters</span>
+    </a>
+  </div>
+  <p style="margin-top:24px;font-size:13px;color:var(--text-muted);">
+    <span class="zh-only">学习进度：<span id="progress-count">0 / 11</span> 章 · 进度自动保存到你浏览器</span>
+    <span class="en-only">Progress: <span id="progress-count">0 / 11</span> chapters · saved locally in your browser</span>
+  </p>
+</section>
+
+<section id="roadmap" class="container-wide" style="padding-top:24px;">
+  <h2 style="border:none;text-align:center;">
+    <span class="zh-only">学习路径 · The Path</span>
+    <span class="en-only">The Learning Path</span>
+  </h2>
+  <p style="text-align:center;color:var(--text-soft);max-width:600px;margin:0 auto 32px;">
+    <span class="zh-only">三段式课程：先看懂 → 会用 → 会造。每段后面都有里程碑实操。</span>
+    <span class="en-only">Three stages: understand → use → build. Each stage ends with a hands-on milestone.</span>
+  </p>
+
+  <div class="roadmap-row">
+    <a class="roadmap-pill" href="chapters/ch0-getting-started.html">Ch 0</a>
+    <a class="roadmap-pill" href="chapters/ch1-what-is-ai.html">Ch 1 · What is AI</a>
+    <span class="roadmap-arrow">→</span>
+    <a class="roadmap-pill" href="chapters/ch2-how-ai-works.html">Ch 2 · How AI Works</a>
+    <span class="roadmap-arrow">→</span>
+    <a class="roadmap-pill" href="chapters/ch3-the-landscape.html">Ch 3 · The Landscape</a>
+    <span class="roadmap-arrow">→</span>
+    <span class="roadmap-pill milestone">
+      <span class="zh-only">里程碑 1：看懂 AI</span><span class="en-only">Milestone 1: Understand AI</span>
+    </span>
+  </div>
+
+  <div class="roadmap-row">
+    <a class="roadmap-pill" href="chapters/ch4-prompt-engineering.html">Ch 4 · Prompt Engineering ⭐</a>
+    <span class="roadmap-arrow">→</span>
+    <a class="roadmap-pill" href="chapters/ch5-tools.html">Ch 5 · AI Tools</a>
+    <span class="roadmap-arrow">→</span>
+    <span class="roadmap-pill milestone">
+      <span class="zh-only">里程碑 2：会用 AI</span><span class="en-only">Milestone 2: Use AI</span>
+    </span>
+  </div>
+
+  <div class="roadmap-row">
+    <a class="roadmap-pill" href="chapters/ch6-what-is-agent.html">Ch 6 · What is an Agent</a>
+    <span class="roadmap-arrow">→</span>
+    <a class="roadmap-pill" href="chapters/ch7-build-agent.html">Ch 7 · Build an Agent ⭐</a>
+    <span class="roadmap-arrow">→</span>
+    <a class="roadmap-pill" href="chapters/ch8-rag.html">Ch 8 · RAG</a>
+    <span class="roadmap-arrow">→</span>
+    <span class="roadmap-pill milestone">
+      <span class="zh-only">里程碑 3：会造 AI 应用</span><span class="en-only">Milestone 3: Build with AI</span>
+    </span>
+  </div>
+
+  <div class="roadmap-row">
+    <a class="roadmap-pill" href="chapters/ch9-limits.html">Ch 9 · Limits</a>
+    <span class="roadmap-arrow">→</span>
+    <a class="roadmap-pill" href="chapters/ch10-ai-and-you.html">Ch 10 · AI &amp; You</a>
+  </div>
+</section>
+
+<section id="how" class="container">
+  <h2><span class="zh-only">怎么学这门课</span><span class="en-only">How to Use This Course</span></h2>
+  <div class="callout tip">
+    <div class="callout-title">
+      <span class="zh-only">三层信息架构</span><span class="en-only">Three-Layer Architecture</span>
+    </div>
+    <p>
+      <span class="zh-only">每个知识点分三层。第一层默认显示（核心 + 比喻），点击 <strong>▸ 深入了解</strong> 看第二层（详细 + 例子），再点 <strong>▸ 看源码/论文</strong> 看第三层（技术细节）。<br>不想钻深的, 看第一层就够用。</span>
+      <span class="en-only">Every concept has three layers. Layer 1 shows by default (core idea + analogy). Click <strong>▸ Go deeper</strong> for Layer 2 (details + examples). Click <strong>▸ See source/paper</strong> for Layer 3 (technical detail).<br>Layer 1 alone is enough if you don't want to dive deep.</span>
+    </p>
+  </div>
+
+  <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+    <div class="card" style="cursor:default;">
+      <div class="ch-num">📖</div>
+      <h3><span class="zh-only">课件</span><span class="en-only">Lessons</span></h3>
+      <p><span class="zh-only">每章一页, 概念 + 比喻 + 例子。读完打勾。</span>
+        <span class="en-only">One page per chapter. Concepts + analogies + examples.</span></p>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="ch-num">🧪</div>
+      <h3><span class="zh-only">实验室 (Lab)</span><span class="en-only">Labs</span></h3>
+      <p><span class="zh-only">动手做。复制 prompt、跑 Python 脚本、调 API。每个实操都给可运行代码。</span>
+        <span class="en-only">Hands-on. Copy prompts, run Python, call APIs. Every lab gives runnable code.</span></p>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="ch-num">✅</div>
+      <h3><span class="zh-only">小测验 (Quiz)</span><span class="en-only">Quizzes</span></h3>
+      <p><span class="zh-only">每章末尾一个独立 quiz 页, 即时反馈, 答错了立刻告诉你为什么。</span>
+        <span class="en-only">Each chapter has its own quiz page. Instant feedback explains why a wrong answer is wrong.</span></p>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="ch-num">🌐</div>
+      <h3><span class="zh-only">中英双语</span><span class="en-only">Bilingual</span></h3>
+      <p><span class="zh-only">右上角切换。中文版保留英文术语 (token, prompt, agent 等), 让你逐渐熟悉行业语言。</span>
+        <span class="en-only">Toggle in the top-right. Chinese version keeps English technical terms.</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="chapters" class="container">
+  <h2><span class="zh-only">11 个章节 · 11 Chapters</span><span class="en-only">11 Chapters</span></h2>
+
+  <div class="card-grid">
+
+    <a class="card" href="chapters/ch0-getting-started.html" data-chapter-id="ch0">
+      <div class="ch-num">CH 0 · GETTING STARTED</div>
+      <h3><span class="zh-only">开始之前：注册 AI 账号</span><span class="en-only">Before You Start: Get Your AI Accounts</span></h3>
+      <p><span class="zh-only">注册 Claude/ChatGPT/Gemini（国内备选：DeepSeek/Kimi/Qwen）。编程工具配置见附录 A（Ch 7 之前完成）。</span>
+        <span class="en-only">Sign up for Claude/ChatGPT/Gemini (domestic alternatives: DeepSeek/Kimi/Qwen). Dev environment in Appendix A (complete before Ch 7).</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 5 分钟</span><span class="en-only">~5 min</span></span>
+      </div>
+    </a>
+
+    <a class="card" href="chapters/ch1-what-is-ai.html" data-chapter-id="ch1">
+      <div class="ch-num">CH 1 · WHAT IS AI</div>
+      <h3><span class="zh-only">AI 到底是什么</span><span class="en-only">What is AI, Really?</span></h3>
+      <p><span class="zh-only">AI / ML / DL / LLM 的区别, AI 的简史, AI 不是什么 (破除迷信), 概念地图。</span>
+        <span class="en-only">AI vs ML vs DL vs LLM, a brief history, what AI is NOT, the concept map.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 20 分钟</span><span class="en-only">~20 min</span></span>
+      </div>
+    </a>
+
+    <a class="card" href="chapters/ch2-how-ai-works.html" data-chapter-id="ch2">
+      <div class="ch-num">CH 2 · HOW AI WORKS</div>
+      <h3><span class="zh-only">AI 是怎么工作的</span><span class="en-only">How AI Actually Works</span></h3>
+      <p><span class="zh-only">超级文字接龙: token, attention, transformer, context window, 为什么会幻觉。</span>
+        <span class="en-only">The autocomplete-on-steroids model: tokens, attention, transformers, context, why AI hallucinates.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 30 分钟</span><span class="en-only">~30 min</span></span>
+      </div>
+    </a>
+
+    <a class="card" href="chapters/ch3-the-landscape.html" data-chapter-id="ch3">
+      <div class="ch-num">CH 3 · THE LANDSCAPE</div>
+      <h3><span class="zh-only">主流 AI 模型大盘点</span><span class="en-only">The AI Model Landscape</span></h3>
+      <p><span class="zh-only">Claude / GPT / Gemini / DeepSeek / Qwen / Llama: 各自的强项弱项, 开源 vs 闭源, 怎么选。</span>
+        <span class="en-only">Claude, GPT, Gemini, DeepSeek, Qwen, Llama: strengths, weaknesses, open vs closed, which to use.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 20 分钟</span><span class="en-only">~20 min</span></span>
+      </div>
+    </a>
+
+    <a class="card flagship" href="chapters/ch4-prompt-engineering.html" data-chapter-id="ch4">
+      <div class="ch-num">CH 4 · PROMPT ENGINEERING ⭐</div>
+      <h3><span class="zh-only">如何写 Prompt: 让 AI 听话的核心技能</span><span class="en-only">Prompt Engineering: The Core Skill</span></h3>
+      <p><span class="zh-only">RTCFR 框架, few-shot, chain-of-thought, XML tags, 9 个学生场景实战模板, 反模式集合。</span>
+        <span class="en-only">The RTCFR framework, few-shot, chain-of-thought, XML tags, 9 ready-to-copy templates for students, anti-patterns.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 60 分钟</span><span class="en-only">~60 min</span></span>
+        <span><span class="zh-only">核心章节</span><span class="en-only">Flagship</span></span>
+      </div>
+    </a>
+
+    <a class="card" href="chapters/ch5-tools.html" data-chapter-id="ch5">
+      <div class="ch-num">CH 5 · AI TOOLS IN PRACTICE</div>
+      <h3><span class="zh-only">AI 工具实战</span><span class="en-only">AI Tools in the Wild</span></h3>
+      <p><span class="zh-only">Claude.ai (Projects/Artifacts), Claude Code 和 CLAUDE.md 维护, Cursor, NotebookLM, Perplexity, 图像生成。</span>
+        <span class="en-only">Claude.ai, Claude Code &amp; CLAUDE.md, Cursor, NotebookLM, Perplexity, image gen.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 40 分钟</span><span class="en-only">~40 min</span></span>
+      </div>
+    </a>
+
+    <a class="card" href="chapters/ch6-what-is-agent.html" data-chapter-id="ch6">
+      <div class="ch-num">CH 6 · WHAT IS AN AGENT</div>
+      <h3><span class="zh-only">AI Agent 是什么</span><span class="en-only">What is an AI Agent?</span></h3>
+      <p><span class="zh-only">Agent vs workflow (Anthropic 定义), 5 种 workflow 模式, augmented LLM, tool use, memory, planning。</span>
+        <span class="en-only">Agent vs workflow (Anthropic's definitions), 5 workflow patterns, augmented LLM, tool use, memory, planning.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 30 分钟</span><span class="en-only">~30 min</span></span>
+      </div>
+    </a>
+
+    <a class="card flagship" href="chapters/ch7-build-agent.html" data-chapter-id="ch7">
+      <div class="ch-num">CH 7 · BUILD YOUR FIRST AGENT ⭐</div>
+      <h3><span class="zh-only">动手做你的第一个 Agent</span><span class="en-only">Build Your First Agent</span></h3>
+      <p><span class="zh-only">用 Claude API 写 Q&amp;A bot → 加工具 → 加记忆 → 用 Microsoft Agent Framework 搭多 agent 系统。</span>
+        <span class="en-only">Build a Q&amp;A bot with the Claude API → add tools → add memory → build a multi-agent system with Microsoft Agent Framework.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 90 分钟</span><span class="en-only">~90 min</span></span>
+        <span><span class="zh-only">含 Python 代码</span><span class="en-only">Python code</span></span>
+      </div>
+    </a>
+
+    <a class="card" href="chapters/ch8-rag.html" data-chapter-id="ch8">
+      <div class="ch-num">CH 8 · RAG</div>
+      <h3><span class="zh-only">RAG: 让 AI 学你的资料</span><span class="en-only">RAG: Teaching AI Your Data</span></h3>
+      <p><span class="zh-only">为什么需要 RAG, embedding 是什么, 把课堂笔记喂给 AI 做问答的完整流程。</span>
+        <span class="en-only">Why RAG, what embeddings are, full pipeline to make your own notes Q&amp;A-able.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 45 分钟</span><span class="en-only">~45 min</span></span>
+      </div>
+    </a>
+
+    <a class="card" href="chapters/ch9-limits.html" data-chapter-id="ch9">
+      <div class="ch-num">CH 9 · LIMITS &amp; PITFALLS</div>
+      <h3><span class="zh-only">AI 的能力边界</span><span class="en-only">Where AI Falls Short</span></h3>
+      <p><span class="zh-only">幻觉、数学弱、时效性、偏见, 案例研究, 必须人工介入 (Human-in-the-loop) 的清单。</span>
+        <span class="en-only">Hallucination, weak math, stale knowledge, bias, real case studies, when to keep humans in the loop.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 30 分钟</span><span class="en-only">~30 min</span></span>
+      </div>
+    </a>
+
+    <a class="card" href="chapters/ch10-ai-and-you.html" data-chapter-id="ch10">
+      <div class="ch-num">CH 10 · AI &amp; YOU</div>
+      <h3><span class="zh-only">AI 时代怎么学习, 怎么生活</span><span class="en-only">Learning &amp; Living in the AI Era</span></h3>
+      <p><span class="zh-only">用 AI 学习的正确姿势, 学术诚信, 隐私和版权, AI 时代该学什么。</span>
+        <span class="en-only">How to actually learn with AI, academic integrity, privacy, copyright, what to study now.</span></p>
+      <div class="ch-meta">
+        <span><span class="zh-only">约 25 分钟</span><span class="en-only">~25 min</span></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section id="appendix" class="container" style="padding-top:0;">
+  <h2><span class="zh-only">参考附录</span><span class="en-only">Reference Appendix</span></h2>
+  <p style="color:var(--text-soft);margin-bottom:20px;">
+    <span class="zh-only">以下内容不在主线学习路径中，按需查阅。</span>
+    <span class="en-only">Reference materials outside the main learning path — look up when needed.</span>
+  </p>
+  <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+    <a class="card" href="chapters/appendix-a-setup.html">
+      <div class="ch-num" style="color:var(--text-muted);">附录 A · APPENDIX A</div>
+      <h3><span class="zh-only">编程环境配置指南</span><span class="en-only">Dev Environment Setup Guide</span></h3>
+      <p><span class="zh-only">VS Code 安装、Python 3.11、API key + 环境变量、第一个 AI 程序（藏头诗）、常见报错解决。Ch 7 之前完成。</span>
+        <span class="en-only">VS Code install, Python 3.11, API key + env var, first AI program (acrostic poem), common error fixes. Complete before Ch 7.</span></p>
+      <div class="ch-meta"><span>⏱️ ~20 min</span></div>
+    </a>
+  </div>
+</section>
+
+<section class="container" style="padding-top:0;">
+  <h2><span class="zh-only">关于这门课</span><span class="en-only">About This Course</span></h2>
+  <p><span class="zh-only">这门课的素材主要来自以下官方权威来源, 我们对内容做了重新编排和高中生化处理:</span>
+    <span class="en-only">This course is built on authoritative sources, repurposed and adapted for high-school readers:</span></p>
+  <ul>
+    <li><a href="https://github.com/microsoft/agent-framework" target="_blank">Microsoft Agent Framework</a> — Ch 6, 7 的多 agent 代码基础</li>
+    <li><a href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank">Microsoft AI Agents for Beginners</a> — Ch 6 的设计模式参考</li>
+    <li><a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/" target="_blank">Anthropic Prompt Engineering Docs</a> — Ch 4 的核心</li>
+    <li><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Anthropic · Building Effective Agents</a> — Ch 6 agent 定义和 workflow 模式</li>
+    <li><a href="https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview" target="_blank">Anthropic Tool Use Docs</a> — Ch 7 函数调用</li>
+    <li><a href="https://docs.claude.com/en/docs/claude-code/claude-md" target="_blank">Anthropic · CLAUDE.md Guide</a> — Ch 5 编程实战</li>
+  </ul>
+  <p style="font-size:13px;color:var(--text-muted);">
+    <span class="zh-only">所有外部资料的引用都会在对应章节末尾标明来源。</span>
+    <span class="en-only">All external sources are cited at the bottom of each chapter.</span>
+  </p>
+</section>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/feedback-widget.js" defer></script>
+</body>
+</html>
